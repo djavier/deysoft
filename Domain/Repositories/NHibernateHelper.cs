@@ -17,9 +17,18 @@ namespace Domain.Repositories
       {
         if (_sessionFactory == null)
         {
-          var configuration = new Configuration();
-          configuration.Configure();
-          _sessionFactory = configuration.BuildSessionFactory();
+          try
+          {
+            var configuration = new Configuration();
+            configuration.Configure();
+            _sessionFactory = configuration.BuildSessionFactory();
+          }
+          catch (Exception ex)
+          {
+            
+            throw ex;
+          }
+
         }
         return _sessionFactory;
       }

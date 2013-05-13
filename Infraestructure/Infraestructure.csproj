@@ -46,15 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Content Include="DeySoftHibernate.cfg.xml">
+    <EmbeddedResource Include="DataAccess\Mappings\User.hbm.xml" />
+    <EmbeddedResource Include="hibernate.cfg.xml">
       <SubType>Designer</SubType>
-    </Content>
+    </EmbeddedResource>
+    <Compile Include="DataHandle\Hash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\Mappings\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

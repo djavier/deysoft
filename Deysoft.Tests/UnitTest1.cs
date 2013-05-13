@@ -3,6 +3,9 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Domain;
+using Domain.Model;
+using Domain.Repositories;
 
 namespace Deysoft.Tests
 {
@@ -60,11 +63,28 @@ namespace Deysoft.Tests
     #endregion
 
     [TestMethod]
-    public void TestMethod1()
+    [DeploymentItem("hibernate.cfg.xml")]
+    public void CanCreateUser()
     {
-      //
-      // TODO: Add test logic here
-      //
+      IRepository<User> repo = new UserRepository();
+      User User = new User();
+      User.Username = "ERosario";
+      User.Name = "Ezequiel";
+      User.Lastname = "Rosario";
+      User.Email = "ezequiel189@hotmail.com";                    
+      User.Password = Infraestructure.DataHandle.Hash.SHA256("erosario");                 
+      User.PasswordQuestion = "";         
+      User.PasswordAnswer ="";
+      User.LastLoginDate = DateTime.Now;
+      User.LastPasswordChangeDate = DateTime.Now;
+      User.CreationDate = DateTime.Now;
+      User.IsOnLine =  false;                
+      User.IsLockedOut = false;             
+      User.PasswordAttemptsCount = 0;     
+      User.PasswordAnswerAttemptsCount = 0;
+
+      repo.Save(User);
+
     }
   }
 }
