@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using Domain.Model;
 
 namespace DeySoftWeb.Models
 {
@@ -29,14 +30,16 @@ namespace DeySoftWeb.Models
 
   public class LogOnModel
   {
-    [Required]
-    [Display(Name = "User name")]
-    public string UserName { get; set; }
+    //[Required]
+    //[Display(Name = "User name")]
+    //public string UserName { get; set; }
 
-    [Required]
-    [DataType(DataType.Password)]
-    [Display(Name = "Password")]
-    public string Password { get; set; }
+    //[Required]
+    //[DataType(DataType.Password)]
+    //[Display(Name = "Password")]
+    //public string Password { get; set; }
+
+    public User User { get; set; }
 
     [Display(Name = "Remember me?")]
     public bool RememberMe { get; set; }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using DeySoftWeb.Models;
+using Service;
 
 namespace DeySoftWeb.Controllers
 {
@@ -28,9 +29,10 @@ namespace DeySoftWeb.Controllers
     {
       if (ModelState.IsValid)
       {
-        if (Membership.ValidateUser(model.UserName, model.Password))
+        using (var service = new Service.UserService())
+        if (service.ValidateUser(model.User.Username, model.User.Password))
         {
-          FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+          FormsAuthentication.SetAuthCookie(model.User.Username, model.RememberMe);
           if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
               && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
           {
@@ -120,8 +122,8 @@ namespace DeySoftWeb.Controllers
         bool changePasswordSucceeded;
         try
         {
-          MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-          changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+           using (var service = new Service.UserService())
+             changePasswordSucceeded = service.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
         }
         catch (Exception)
         {

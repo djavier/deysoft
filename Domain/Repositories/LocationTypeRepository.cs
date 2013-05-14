@@ -8,11 +8,11 @@ using NHibernate.Criterion;
 
 namespace Domain.Repositories
 {
-  public class UserRepository : IUserRepository
+  public class LocationTypeRepository : IRepository<LocationType>
   {
-    #region IUserRepository Members
+    #region ILocationTypeRepository Members
 
-           void IRepository<User>.Save(User entity)
+           void IRepository<LocationType>.Save(LocationType entity)
            {
                using (ISession session = NHibernateHelper.OpenSession())
                {
@@ -24,7 +24,7 @@ namespace Domain.Repositories
                }
            }
     
-           void IRepository<User>.Update(User entity)
+           void IRepository<LocationType>.Update(LocationType entity)
            {
                using (ISession session = NHibernateHelper.OpenSession())
                {
@@ -38,19 +38,19 @@ namespace Domain.Repositories
     
 
     
-           User IRepository<User>.GetById(Guid id)
+           LocationType IRepository<LocationType>.GetById(Guid id)
            {
                using (ISession session = NHibernateHelper.OpenSession())
-                   return session.CreateCriteria<User>().Add(Restrictions.Eq("Id", id)).UniqueResult<User>();
+                   return session.CreateCriteria<LocationType>().Add(Restrictions.Eq("Id", id)).UniqueResult<LocationType>();
            }
 
-           IList<User> IRepository<User>.GetAll()
+           IList<LocationType> IRepository<LocationType>.GetAll()
            {
              using (ISession session = NHibernateHelper.OpenSession())
-               return session.QueryOver<User>().List();
+               return session.QueryOver<LocationType>().List();
            }
     
-           void IRepository<User>.Delete(User entity)
+           void IRepository<LocationType>.Delete(LocationType entity)
            {
              using (ISession session = NHibernateHelper.OpenSession())
              {
@@ -62,7 +62,7 @@ namespace Domain.Repositories
              }
            }
 
-           void IRepository<User>.Delete(Guid id)
+           void IRepository<LocationType>.Delete(Guid id)
            {
              using (ISession session = NHibernateHelper.OpenSession())
              {
@@ -74,11 +74,10 @@ namespace Domain.Repositories
              }
            }
 
-
-           User IUserRepository.GetByUsername(string username)
+           LocationType IRepository<LocationType>.GetById(int id)
            {
              using (ISession session = NHibernateHelper.OpenSession())
-               return session.CreateCriteria<User>().Add(Restrictions.Eq("Username", username)).UniqueResult<User>();
+               return session.CreateCriteria<LocationType>().Add(Restrictions.Eq("Id", id)).UniqueResult<LocationType>();
            }
 
       #endregion
@@ -88,14 +87,6 @@ namespace Domain.Repositories
 
 
 
-           #region IRepository<User> Members
-
-
-           public User GetById(int id)
-           {
-             throw new NotImplementedException();
-           }
-
-           #endregion
+      
   }
 }

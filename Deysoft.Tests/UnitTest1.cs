@@ -13,6 +13,7 @@ namespace Deysoft.Tests
   /// Summary description for UnitTest1
   /// </summary>
   [TestClass]
+  
   public class UnitTest1
   {
     public UnitTest1()
@@ -63,7 +64,6 @@ namespace Deysoft.Tests
     #endregion
 
     [TestMethod]
-    [DeploymentItem("hibernate.cfg.xml")]
     public void CanCreateUser()
     {
       IRepository<User> repo = new UserRepository();
@@ -85,6 +85,31 @@ namespace Deysoft.Tests
 
       repo.Save(User);
 
+    }
+
+    [TestMethod]
+    public void CanValidateUser()
+    {
+      using (var service = new Service.UserService())
+      {
+        string username = "Djavier";
+        string password = "djavier";
+        Assert.IsTrue(service.ValidateUser(username, password));
+      }
+    }
+
+
+    [TestMethod]
+    public void CanChangePassword()
+    {
+      using (var service = new Service.UserService())
+      {
+        string username = "Djavier";
+        string oldPassword = "djavier";
+        string newPassword = "javier";
+
+        Assert.IsTrue(service.ChangePassword(username, oldPassword, newPassword));
+      }
     }
   }
 }
