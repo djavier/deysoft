@@ -18,8 +18,15 @@ namespace Domain.Repositories
                {
                    using (ITransaction transaction = session.BeginTransaction())
                    {
+                     try
+                     {
                        session.Save(entity);
                        transaction.Commit();
+                     }
+                     catch (Exception ex )
+                     {
+                       throw ex;
+                     }
                    }
                }
            }

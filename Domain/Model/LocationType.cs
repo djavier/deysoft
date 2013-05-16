@@ -7,7 +7,13 @@ namespace Domain.Model
 {
   public class LocationType
   {
-    public virtual int      ID               { get; set; }
+    public LocationType()
+    {
+      Modified_on = DateTime.Now;
+    }
+    
+
+    public virtual Guid      Id           { get; set; }
     public virtual string   Description   {get;set;}
     public virtual string   Created_by    {get;set;}
     public virtual DateTime Created_on   {get;set;}

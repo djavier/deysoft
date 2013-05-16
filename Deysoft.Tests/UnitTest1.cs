@@ -90,12 +90,15 @@ namespace Deysoft.Tests
     [TestMethod]
     public void CanValidateUser()
     {
-      using (var service = new Service.UserService())
-      {
-        string username = "Djavier";
-        string password = "djavier";
-        Assert.IsTrue(service.ValidateUser(username, password));
-      }
+
+        using (var service = new Service.UserService())
+        {
+          string username = "Djavier";
+          string password = "javier";
+          Assert.IsTrue(service.ValidateUser(username, password));
+        }
+      
+      
     }
 
 
@@ -109,6 +112,55 @@ namespace Deysoft.Tests
         string newPassword = "javier";
 
         Assert.IsTrue(service.ChangePassword(username, oldPassword, newPassword));
+      }
+    }
+
+    [TestMethod]
+    public void CanCreateLocationType()
+    {
+      try
+      {
+        using (var service = new Service.LocationService())
+        {
+          string username = "Djavier";
+          string description = "Caja";
+
+          service.CreateLocationType(username, description);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+    [TestMethod]
+    public void CanGetLocationType()
+    {
+      IRepository<LocationType> repo = new LocationTypeRepository();
+
+      LocationType locType = repo.GetById(Guid.Parse("14B1E9DD-2F41-4BDB-9AFC-6AA21F63E755"));
+      Assert.IsNotNull(locType);
+        
+    }
+
+    [TestMethod]
+    public void CanUpdateLocationType()
+    {
+      try
+      {
+        using (var service = new Service.LocationService())
+        {
+          string username = "Djavier";
+          string description = "Cajon";
+          string id = "4256C6B2-EE95-4C20-9F3A-C39B3A50C2F0";
+
+          service.UpdateLocationType(username, id, description);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
       }
     }
   }

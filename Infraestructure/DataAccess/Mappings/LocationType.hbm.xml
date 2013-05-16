@@ -5,7 +5,8 @@
     
      <class name="LocationType" table="TB_LOCATION_TYPE" dynamic-update="true">
        <cache usage="read-write"/>
-       <id name="ID" column="ID" type="int">
+       <id name="Id" column="Id" type="Guid">
+         <generator class="guid"/>
        </id>
        <property name="Description" length="100"/>
        <property name="Created_by" length="50"/>

@@ -36,7 +36,10 @@ namespace Service
     /// <param name="password">The password.</param>
     /// <returns><c>true</c> when the user is valid.</returns>
     public bool ValidateUser(string username, string password){
+      try
+      {
 
+      
       IUserRepository userRepo = new UserRepository();
       User loginUser =  userRepo.GetByUsername(username);
       string hashedPassword = Infraestructure.DataHandle.Hash.SHA256(password);
@@ -52,6 +55,11 @@ namespace Service
       }
       else 
         return false ;
+      }
+      catch (Exception)
+      {
+        return false;
+      }
 
     }
 

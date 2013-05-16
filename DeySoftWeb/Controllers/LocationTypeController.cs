@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using Domain;
 using Domain.Model;
 using Domain.Repositories;
+using Service;
+using System.Web.Security;
 
 namespace DeySoftWeb.Controllers
-{
+{  
+    [Authorize]
     public class LocationTypeController : Controller
     {
         //
@@ -26,17 +29,19 @@ namespace DeySoftWeb.Controllers
         // POST: /LocationType/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LocationType locationType)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+              using (LocationService service = new LocationService())
+              {                
+                service.CreateLocationType(User.Identity.Name, locationType.Description);
+                return RedirectToAction("List");
+              }
             }
             catch
             {
-                return View();
+              throw;
             }
         }
         
@@ -44,17 +49,20 @@ namespace DeySoftWeb.Controllers
         // POST: /LocationType/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Update(string id, FormCollection formCollection)
         {
             try
             {
-                // TODO: Add update logic here
+              using (var service = new Service.LocationService())
+              {
+                service.UpdateLocationType(User.Identity.Name, id, formCollection["item.Description"]);
+              }
  
-                return RedirectToAction("Index");
+               return RedirectToAction("List");
             }
             catch
             {
-                return View();
+                return View("List");
             }
         }
 
