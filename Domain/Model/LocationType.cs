@@ -19,5 +19,7 @@ namespace Domain.Model
     public virtual DateTime Created_on   {get;set;}
     public virtual string   Modified_by   {get;set;}
     public virtual DateTime Modified_on {get;set;}
+
+    public virtual IEnumerable<Location> Locations { get; set; }
   }
 }

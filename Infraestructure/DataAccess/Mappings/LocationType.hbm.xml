@@ -13,7 +13,10 @@
        <property name="Created_on" type="datetime"/>
        <property name="Modified_by" length="50"/>
        <property name="Modified_on" type="datetime" />
-
+       <bag name="Locations" inverse="true" lazy="true" cascade="all-delete-orphan">
+         <key column="ID_Location_Type"/>
+         <one-to-many class="Location "/>
+       </bag>
      </class>
    </hibernate-mapping>
 

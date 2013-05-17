@@ -163,5 +163,26 @@ namespace Deysoft.Tests
         Assert.Fail(e.Message + e.InnerException.Message);
       }
     }
+
+    [TestMethod]
+    public void CanCreateLocation()
+    {
+      try
+      {
+        using (var service = new Service.LocationService())
+        {
+          Location loc = new Location();
+          loc.Description = "Bloque 2";
+          loc.LocationType = service.GetLocationType("C4BC2F24-6B59-4839-8A88-2BBB7DAAC452");
+
+          string username = "Djavier";
+          service.CreateLocation(loc,username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
   }
 }

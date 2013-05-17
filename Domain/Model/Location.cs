@@ -12,8 +12,7 @@ namespace Domain.Model
       Modified_on = DateTime.Now;
 
     }
-
-
+    
         public virtual Guid Id { get; set; }
         public virtual string Description { get; set; }
           

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LocationTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -164,6 +165,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\LocationType\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Location\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Location\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Location\Update.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

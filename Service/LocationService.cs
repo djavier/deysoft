@@ -21,6 +21,25 @@ namespace Service
     
     }
 
+    public IEnumerable<LocationType> GetLocationType(){
+      IRepository<LocationType> rep = new LocationTypeRepository();
+      return rep.GetAll();
+    }
+
+    public LocationType GetLocationType(string id){
+      IRepository<LocationType> rep = new LocationTypeRepository();
+      return rep.GetById(Guid.Parse(id));
+    }
+
+    public IEnumerable<Location> GetLocation(){
+      IRepository<Location> rep = new LocationRepository();
+      return rep.GetAll();
+    }
+
+    public Location GetLocation(string id){
+      IRepository<Location> rep = new LocationRepository();
+      return rep.GetById(Guid.Parse(id));
+    }
 
     public void CreateLocationType(string username, string description)
     {
@@ -43,6 +62,17 @@ namespace Service
       locType.Modified_on = DateTime.Now;
 
       rep.Update(locType);     
+    }
+
+    public void CreateLocation(Location location,string username) 
+    {
+      IRepository<Location> rep = new LocationRepository();
+      location.Created_by = username;
+      location.Modified_by = username;
+      location.Created_on = DateTime.Now;
+      location.Modified_on = DateTime.Now;
+      rep.Save(location);     
+      
     }
   
     #region IDisposable Members

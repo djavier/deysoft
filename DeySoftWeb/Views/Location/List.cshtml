@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Domain.Model.Location>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Create</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Description
+        </th>
+        <th>
+            Created_by
+        </th>
+        <th>
+            Created_on
+        </th>
+        <th>
+            Modified_by
+        </th>
+        <th>
+            Modified_on
+        </th>
+        <th>Childrens</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_on)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_on)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Childrens.Count())*@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+        </td>
+    </tr>
+}
+
+</table>
