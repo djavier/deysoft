@@ -18,10 +18,10 @@
        </many-to-one>
        <many-to-one name="Father" class="Location" column="Father_ID" />
 
-       <bag name="Childrens" inverse="true" cascade="all-delete-orphan">
+       <!--<bag name="Childrens" inverse="true" cascade="all-delete-orphan">
          <key column="Father_ID"/>
          <one-to-many class="Location" />
-       </bag>
+       </bag>-->
        
        
 

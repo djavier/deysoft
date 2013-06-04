@@ -45,8 +45,8 @@ namespace DeySoftWeb.Controllers
         public ActionResult Update(string id)
         {
           LocationService service = new LocationService();
-          ViewBag.LocationList = service.GetLocation();
-          ViewBag.LocationTypeList = service.GetLocationType();
+          ViewBag.LocationList = service.GetLocation().ToList();
+          ViewBag.LocationTypeList = service.GetLocationType().ToList();
           return View(service.GetLocation(id));
         }
 
