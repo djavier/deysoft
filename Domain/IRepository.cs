@@ -17,9 +17,9 @@ namespace Domain
     IList<T> GetAll();
   }
 
-  public interface IUserRepository : IRepository<User>
+  public interface IUserRepository : IRepository<USER>
   {
-    User GetByUsername(string username);
+    USER GetByUsername(string username);
   }
 
 

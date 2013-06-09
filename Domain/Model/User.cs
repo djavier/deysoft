@@ -5,22 +5,22 @@ using System.Text;
 
 namespace Domain.Model
 {
-  public class User
+  partial class USER
   {
-      public virtual Guid        Id                            {get;set;}
-      public virtual string     Username                   {get;set;}
-      public virtual string     Name                       {get;set;}
-      public virtual string     Lastname                   {get;set;}
-      public virtual string     Email                      {get;set;}
-      public virtual string     Password                   {get;set;}
-      public virtual string     PasswordQuestion           {get;set;}
-      public virtual string     PasswordAnswer             {get;set;}
-      public virtual DateTime?  LastLoginDate                {get;set;}
-      public virtual DateTime?  LastPasswordChangeDate       {get;set;}
-      public virtual DateTime  CreationDate                 {get;set;}
-      public virtual bool       IsOnLine                     {get;set;}
-      public virtual bool       IsLockedOut                  {get;set;}
-      public virtual int       PasswordAttemptsCount         {get;set;}
-      public virtual int      PasswordAnswerAttemptsCount    { get; set; }
+      //public Guid        Id                            {get;set;}
+      //public string     Username                   {get;set;}
+      //public string     Name                       {get;set;}
+      //public string     Lastname                   {get;set;}
+      //public string     Email                      {get;set;}
+      //public string     Password                   {get;set;}
+      //public string     PasswordQuestion           {get;set;}
+      //public string     PasswordAnswer             {get;set;}
+      //public DateTime?  LastLoginDate                {get;set;}
+      //public DateTime?  LastPasswordChangeDate       {get;set;}
+      //public DateTime  CreationDate                 {get;set;}
+      //public bool       IsOnLine                     {get;set;}
+      //public bool       IsLockedOut                  {get;set;}
+      //public int       PasswordAttemptsCount         {get;set;}
+      //public int      PasswordAnswerAttemptsCount    { get; set; }
   }
 }

@@ -5,21 +5,20 @@ using System.Text;
 
 namespace Domain.Model
 {
-  public class LocationType
+  partial class LOCATION_TYPE
   {
-    public LocationType()
+    public LOCATION_TYPE()
     {
-      Modified_on = DateTime.Now;
+      this.Modified_on = DateTime.No  w;
     }
-    
 
-    public virtual Guid      Id           { get; set; }
-    public virtual string   Description   {get;set;}
-    public virtual string   Created_by    {get;set;}
-    public virtual DateTime Created_on   {get;set;}
-    public virtual string   Modified_by   {get;set;}
-    public virtual DateTime Modified_on {get;set;}
+    public Guid      Id           { get; set; }
+    public string   Description   {get;set;}
+    public string   Created_by    {get;set;}
+    public DateTime Created_on   {get;set;}
+    public string   Modified_by   {get;set;}
+    public DateTime Modified_on {get;set;}
 
-    public virtual IEnumerable<Location> Locations { get; set; }
+    //public virtual IEnumerable<LOCATION> Locations { get; set; }
   }
 }

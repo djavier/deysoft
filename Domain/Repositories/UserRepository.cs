@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Domain.Model;
-using NHibernate;
-using NHibernate.Criterion;
+using System.Transactions;
 
 namespace Domain.Repositories
 {
@@ -12,90 +11,90 @@ namespace Domain.Repositories
   {
     #region IUserRepository Members
 
-           void IRepository<User>.Save(User entity)
-           {
-               using (ISession session = NHibernateHelper.OpenSession())
-               {
-                   using (ITransaction transaction = session.BeginTransaction())
-                   {
-                       session.Save(entity);
-                       transaction.Commit();
-                   }
-               }
-           }
-    
-           void IRepository<User>.Update(User entity)
-           {
-               using (ISession session = NHibernateHelper.OpenSession())
-               {
-                   using (ITransaction transaction = session.BeginTransaction())
-                   {
-                       session.Update(entity);
-                       transaction.Commit();
-                   }
-               }
-           }
-    
+    void IRepository<USER>.Save(USER entity)
+    {
+      using (var session = new DEYSoftEntities())
+      {
+        using (var tran = new TransactionScope())
+        {
+          session.AddObject(entity.EntityKey.EntitySetName, entity);
+          session.SaveChanges();
+        }
+      }
+    }
 
-    
-           User IRepository<User>.GetById(Guid id)
-           {
-               using (ISession session = NHibernateHelper.OpenSession())
-                   return session.CreateCriteria<User>().Add(Restrictions.Eq("Id", id)).UniqueResult<User>();
-           }
-
-           IList<User> IRepository<User>.GetAll()
-           {
-             using (ISession session = NHibernateHelper.OpenSession())
-               return session.QueryOver<User>().List();
-           }
-    
-           void IRepository<User>.Delete(User entity)
-           {
-             using (ISession session = NHibernateHelper.OpenSession())
-             {
-               using (ITransaction transaction = session.BeginTransaction())
-               {
-                 session.Delete(entity);
-                 transaction.Commit();
-               }
-             }
-           }
-
-           void IRepository<User>.Delete(Guid id)
-           {
-             using (ISession session = NHibernateHelper.OpenSession())
-             {
-               using (ITransaction transaction = session.BeginTransaction())
-               {
-                 session.Delete(id);
-                 transaction.Commit();
-               }
-             }
-           }
+    void IRepository<USER>.Update(USER entity)
+    {
+      using (var session = new DEYSoftEntities())
+      {
+        using (var tran = new TransactionScope())
+        {
+          session.AddObject(entity.EntityKey.EntitySetName, entity);
+          session.SaveChanges();
+        }
+      }
+    }
 
 
-           User IUserRepository.GetByUsername(string username)
-           {
-             using (ISession session = NHibernateHelper.OpenSession())
-               return session.CreateCriteria<User>().Add(Restrictions.Eq("Username", username)).UniqueResult<User>();
-           }
 
-      #endregion
+    USER IRepository<USER>.GetById(Guid id)
+    {
+      using (var session = new DEYSoftEntities())
+        return session.USERs.Where(x => x.Id == id).FirstOrDefault();
+    }
+
+    IList<USER> IRepository<USER>.GetAll()
+    {
+      using (var session = new DEYSoftEntities())
+        return session.QueryOver<User>().List();
+    }
+
+    void IRepository<User>.Delete(USER entity)
+    {
+      using (var session = new DEYSoftEntities())
+      {
+        using (var tran = new TransactionScope())
+        {
+          session.DeleteObject(entity);
+          session.SaveChanges();
+        }
+      }
+    }
+
+    void IRepository<User>.Delete(Guid id)
+    {
+      using (var session = new DEYSoftEntities())
+      {
+        using (var tran = new TransactionScope())
+        {
+          session.DeleteObject(GetById(id));
+          transaction.Commit();
+        }
+      }
+    }
 
 
+    USER IUserRepository.GetByUsername(string username)
+    {
+      using (var session = new DEYSoftEntities())
+        return session.CreateCriteria<User>().Add(Restrictions.Eq("Username", username)).UniqueResult<User>();
+    }
+
+    #endregion
 
 
 
 
-           #region IRepository<User> Members
 
 
-           public User GetById(int id)
-           {
-             throw new NotImplementedException();
-           }
+    #region IRepository<USER>Members
 
-           #endregion
+
+    public USER GetById(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    #endregion
   }
 }

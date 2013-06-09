@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Domain.Model
 {
-  public class Location
+  partial class LOCATION
   {
-        public Location()
+    public LOCATION()
     {
       Modified_on = DateTime.Now;
 
@@ -21,9 +21,9 @@ namespace Domain.Model
         public virtual string   Modified_by   {get;set;}
         public virtual DateTime Modified_on {get;set;}
 
-        public virtual Location Father { get; set; }
-        public virtual LocationType LocationType { get; set; }
-        public virtual IEnumerable<Location> Childrens { get; set; }
+        public virtual LOCATION Father { get; set; }
+        public virtual LOCATION_TYPE LocationType { get; set; }
+        //public virtual IEnumerable<LOCATION> Childrens { get; set; }
   
   }
 }
