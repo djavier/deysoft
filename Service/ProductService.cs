@@ -44,7 +44,7 @@ namespace Service
 
 
 
-    public void CreateModel(string username, Model model)
+    public void CreateModel(Model model,string username)
     {
       IRepository<Model> rep = new ModelRepository();
       model.Created_by = username;
@@ -55,7 +55,7 @@ namespace Service
 
     }
 
-    public void UpdateModel(string username, Model model)
+    public void UpdateModel(Model model,string username)
     {
       IRepository<Model> rep = new ModelRepository();
 

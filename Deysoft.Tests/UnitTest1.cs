@@ -238,5 +238,59 @@ namespace Deysoft.Tests
         Assert.Fail(e.Message + e.InnerException.Message);
       }
     }
+
+    [TestMethod]
+    public void CanCreateModel()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          Model model = new Model();
+          model.Id_Manufacturer = service.GetManufacturers("E6D4F4F1-1A03-4676-A347-FD74DBE02ACA").Id; 
+          model.Name = "Civic";
+          
+
+
+          service.CreateModel(model, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanGetModel()
+    {
+      using (var service = new Service.ProductService())
+      {
+        Model model = service.GetModels("B607A568-5313-4CC5-9EEE-461C98991659");
+        Assert.IsNotNull(model);
+      }
+    }
+
+
+
+    [TestMethod]
+    public void CanUpdateModel()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          Model model = service.GetModels("B607A568-5313-4CC5-9EEE-461C98991659");
+          model.Name = "Accord";
+
+          service.UpdateModel(model, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
   }
 }
