@@ -342,6 +342,67 @@ namespace Deysoft.Tests
       }
     }
 
+    [TestMethod]
+    public void CanCreateProduct()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          Product prod = new Product();
+          prod.Alias = "Honda";
+          prod.Description = "Japan";
+          prod.Extra_Details = "Extra";
+          prod.Year = "2012";
+          prod.Condition = "New";
+          prod.Reorder_Point = "1";
+
+          prod.Id_Product_Type = Guid.Parse("17DA86B1-F50A-4E1C-82BB-A1B46C7204E8");
+          prod.Id_Manufacturer = Guid.Parse("E6D4F4F1-1A03-4676-A347-FD74DBE02ACA");
+          prod.Id_Model = Guid.Parse("B607A568-5313-4CC5-9EEE-461C98991659");
+
+          service.CreateProduct(prod, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+    [TestMethod]
+    public void CanGetProduct()
+    {
+      using (var service = new Service.ProductService())
+      {
+        Product model = service.GetProducts("B3CF324D-4AE9-4D44-9CF0-4B3C2DE296C6");
+        Assert.IsNotNull(model);
+       
+      }
+    }
+
+    [TestMethod]
+    public void CanUpdateProduct()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          Product model = service.GetProducts("B3CF324D-4AE9-4D44-9CF0-4B3C2DE296C6");
+          model.Description = "32b86t";
+          model.Alias = "EL Abusador";
+
+          service.UpdateProduct(model, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+    
+
 
   }
 }

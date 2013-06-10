@@ -16,6 +16,20 @@ namespace Service
     
     }
 
+    public IEnumerable<Product> GetProducts()
+    {
+      IRepository<Product> rep = new ProductRepository();
+      return rep.GetAll();
+    }
+
+
+    public Product GetProducts(string id)
+    {
+      IRepository<Product> rep = new ProductRepository();
+      return rep.GetById(Guid.Parse(id));
+    }
+
+
     
     public IEnumerable<Model> GetModels()
     {
@@ -121,11 +135,27 @@ namespace Service
       rep.Update(productType);
     }
 
+    public void CreateProduct(Product product, string username)
+    {
+      IRepository<Product> rep = new ProductRepository();
+      product.Created_by = username;
+      product.Modified_by = username;
+      product.Created_on = DateTime.Now;
+      product.Modified_on = DateTime.Now;
+      rep.Save(product);
+    }
 
 
-    
-    
-    
+    public void UpdateProduct(Product product, string username)
+    {
+      IRepository<Product> rep = new ProductRepository();
+
+      product.Modified_by = username;
+      product.Modified_on = DateTime.Now;
+
+      rep.Update(product);
+    }
+
 
     #region IDisposable Members
 
