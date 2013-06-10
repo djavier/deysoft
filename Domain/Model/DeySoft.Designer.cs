@@ -19,15 +19,16 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION_TYPE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.LOCATION_TYPE), "TB_LOCATION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.LOCATION), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TB_LOTE_TB_LOCATION", "TB_LOCATION", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.LOCATION), "TB_LOTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_LOTE), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_PACKAGE_TYPE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.TB_PACKAGE_TYPE), "TB_LOTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_LOTE), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TB_LOTE_TBL_PRODUCT", "TB_PRODUCT", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.TB_PRODUCT), "TB_LOTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_LOTE), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TB_OUTPUT_TB_LOTE", "TB_LOTE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.TB_LOTE), "TB_OUTPUT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_OUTPUT), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TB_MODELS_TB_MANUFACTURER", "TB_MANUFACTURER", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.MANUFACTURER), "TB_MODEL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_MODEL), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_MANUFACTURER", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.MANUFACTURER), "TB_PRODUCT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_PRODUCT), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_MODELS", "TB_MODEL", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Domain.Model.TB_MODEL), "TB_PRODUCT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_PRODUCT), true)]
-[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT_TYPE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.TB_PRODUCT_TYPE), "TB_PRODUCT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.TB_PRODUCT), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Location_Location", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Domain.Model.Location), "Location1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Location), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Location_LocationType", "LocationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.LocationType), "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Location), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Lote_Location", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Location), "Lote", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Lote), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Lote_PackageType", "PackageType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.PackageType), "Lote", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Lote), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Lote_Product", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Product), "Lote", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Lote), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Output_Lote", "Lote", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Lote), "Output", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Output), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Model_Manufacturer", "Manufacturer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Manufacturer), "Model", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Model), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Product_Manufacturer", "Manufacturer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Manufacturer), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Product), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Product_Model", "Model", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Domain.Model.Model), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Product), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Product_ProductType", "ProductType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.ProductType), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Product), true)]
 
 #endregion
 
@@ -82,245 +83,245 @@ namespace Domain.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<LOCATION> LOCATIONs
+        public ObjectSet<Location> Locations
         {
             get
             {
-                if ((_LOCATIONs == null))
+                if ((_Locations == null))
                 {
-                    _LOCATIONs = base.CreateObjectSet<LOCATION>("LOCATIONs");
+                    _Locations = base.CreateObjectSet<Location>("Locations");
                 }
-                return _LOCATIONs;
+                return _Locations;
             }
         }
-        private ObjectSet<LOCATION> _LOCATIONs;
+        private ObjectSet<Location> _Locations;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<LOCATION_TYPE> LOCATION_TYPE
+        public ObjectSet<LocationType> LocationTypes
         {
             get
             {
-                if ((_LOCATION_TYPE == null))
+                if ((_LocationTypes == null))
                 {
-                    _LOCATION_TYPE = base.CreateObjectSet<LOCATION_TYPE>("LOCATION_TYPE");
+                    _LocationTypes = base.CreateObjectSet<LocationType>("LocationTypes");
                 }
-                return _LOCATION_TYPE;
+                return _LocationTypes;
             }
         }
-        private ObjectSet<LOCATION_TYPE> _LOCATION_TYPE;
+        private ObjectSet<LocationType> _LocationTypes;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TB_LOTE> TB_LOTE
+        public ObjectSet<Lote> Lotes
         {
             get
             {
-                if ((_TB_LOTE == null))
+                if ((_Lotes == null))
                 {
-                    _TB_LOTE = base.CreateObjectSet<TB_LOTE>("TB_LOTE");
+                    _Lotes = base.CreateObjectSet<Lote>("Lotes");
                 }
-                return _TB_LOTE;
+                return _Lotes;
             }
         }
-        private ObjectSet<TB_LOTE> _TB_LOTE;
+        private ObjectSet<Lote> _Lotes;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<MANUFACTURER> MANUFACTURERs
+        public ObjectSet<Manufacturer> Manufacturers
         {
             get
             {
-                if ((_MANUFACTURERs == null))
+                if ((_Manufacturers == null))
                 {
-                    _MANUFACTURERs = base.CreateObjectSet<MANUFACTURER>("MANUFACTURERs");
+                    _Manufacturers = base.CreateObjectSet<Manufacturer>("Manufacturers");
                 }
-                return _MANUFACTURERs;
+                return _Manufacturers;
             }
         }
-        private ObjectSet<MANUFACTURER> _MANUFACTURERs;
+        private ObjectSet<Manufacturer> _Manufacturers;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TB_MODEL> TB_MODEL
+        public ObjectSet<Model> Models
         {
             get
             {
-                if ((_TB_MODEL == null))
+                if ((_Models == null))
                 {
-                    _TB_MODEL = base.CreateObjectSet<TB_MODEL>("TB_MODEL");
+                    _Models = base.CreateObjectSet<Model>("Models");
                 }
-                return _TB_MODEL;
+                return _Models;
             }
         }
-        private ObjectSet<TB_MODEL> _TB_MODEL;
+        private ObjectSet<Model> _Models;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TB_OUTPUT> TB_OUTPUT
+        public ObjectSet<Output> Outputs
         {
             get
             {
-                if ((_TB_OUTPUT == null))
+                if ((_Outputs == null))
                 {
-                    _TB_OUTPUT = base.CreateObjectSet<TB_OUTPUT>("TB_OUTPUT");
+                    _Outputs = base.CreateObjectSet<Output>("Outputs");
                 }
-                return _TB_OUTPUT;
+                return _Outputs;
             }
         }
-        private ObjectSet<TB_OUTPUT> _TB_OUTPUT;
+        private ObjectSet<Output> _Outputs;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TB_PACKAGE_TYPE> TB_PACKAGE_TYPE
+        public ObjectSet<PackageType> PackageTypes
         {
             get
             {
-                if ((_TB_PACKAGE_TYPE == null))
+                if ((_PackageTypes == null))
                 {
-                    _TB_PACKAGE_TYPE = base.CreateObjectSet<TB_PACKAGE_TYPE>("TB_PACKAGE_TYPE");
+                    _PackageTypes = base.CreateObjectSet<PackageType>("PackageTypes");
                 }
-                return _TB_PACKAGE_TYPE;
+                return _PackageTypes;
             }
         }
-        private ObjectSet<TB_PACKAGE_TYPE> _TB_PACKAGE_TYPE;
+        private ObjectSet<PackageType> _PackageTypes;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TB_PRODUCT> TB_PRODUCT
+        public ObjectSet<Product> Products
         {
             get
             {
-                if ((_TB_PRODUCT == null))
+                if ((_Products == null))
                 {
-                    _TB_PRODUCT = base.CreateObjectSet<TB_PRODUCT>("TB_PRODUCT");
+                    _Products = base.CreateObjectSet<Product>("Products");
                 }
-                return _TB_PRODUCT;
+                return _Products;
             }
         }
-        private ObjectSet<TB_PRODUCT> _TB_PRODUCT;
+        private ObjectSet<Product> _Products;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TB_PRODUCT_TYPE> TB_PRODUCT_TYPE
+        public ObjectSet<ProductType> ProductTypes
         {
             get
             {
-                if ((_TB_PRODUCT_TYPE == null))
+                if ((_ProductTypes == null))
                 {
-                    _TB_PRODUCT_TYPE = base.CreateObjectSet<TB_PRODUCT_TYPE>("TB_PRODUCT_TYPE");
+                    _ProductTypes = base.CreateObjectSet<ProductType>("ProductTypes");
                 }
-                return _TB_PRODUCT_TYPE;
+                return _ProductTypes;
             }
         }
-        private ObjectSet<TB_PRODUCT_TYPE> _TB_PRODUCT_TYPE;
+        private ObjectSet<ProductType> _ProductTypes;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<USER> USERs
+        public ObjectSet<User> Users
         {
             get
             {
-                if ((_USERs == null))
+                if ((_Users == null))
                 {
-                    _USERs = base.CreateObjectSet<USER>("USERs");
+                    _Users = base.CreateObjectSet<User>("Users");
                 }
-                return _USERs;
+                return _Users;
             }
         }
-        private ObjectSet<USER> _USERs;
+        private ObjectSet<User> _Users;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the LOCATIONs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Locations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToLOCATIONs(LOCATION lOCATION)
+        public void AddToLocations(Location location)
         {
-            base.AddObject("LOCATIONs", lOCATION);
+            base.AddObject("Locations", location);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the LOCATION_TYPE EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the LocationTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToLOCATION_TYPE(LOCATION_TYPE lOCATION_TYPE)
+        public void AddToLocationTypes(LocationType locationType)
         {
-            base.AddObject("LOCATION_TYPE", lOCATION_TYPE);
+            base.AddObject("LocationTypes", locationType);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TB_LOTE EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Lotes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTB_LOTE(TB_LOTE tB_LOTE)
+        public void AddToLotes(Lote lote)
         {
-            base.AddObject("TB_LOTE", tB_LOTE);
+            base.AddObject("Lotes", lote);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the MANUFACTURERs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Manufacturers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToMANUFACTURERs(MANUFACTURER mANUFACTURER)
+        public void AddToManufacturers(Manufacturer manufacturer)
         {
-            base.AddObject("MANUFACTURERs", mANUFACTURER);
+            base.AddObject("Manufacturers", manufacturer);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TB_MODEL EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Models EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTB_MODEL(TB_MODEL tB_MODEL)
+        public void AddToModels(Model model)
         {
-            base.AddObject("TB_MODEL", tB_MODEL);
+            base.AddObject("Models", model);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TB_OUTPUT EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Outputs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTB_OUTPUT(TB_OUTPUT tB_OUTPUT)
+        public void AddToOutputs(Output output)
         {
-            base.AddObject("TB_OUTPUT", tB_OUTPUT);
+            base.AddObject("Outputs", output);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TB_PACKAGE_TYPE EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PackageTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTB_PACKAGE_TYPE(TB_PACKAGE_TYPE tB_PACKAGE_TYPE)
+        public void AddToPackageTypes(PackageType packageType)
         {
-            base.AddObject("TB_PACKAGE_TYPE", tB_PACKAGE_TYPE);
+            base.AddObject("PackageTypes", packageType);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TB_PRODUCT EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTB_PRODUCT(TB_PRODUCT tB_PRODUCT)
+        public void AddToProducts(Product product)
         {
-            base.AddObject("TB_PRODUCT", tB_PRODUCT);
+            base.AddObject("Products", product);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TB_PRODUCT_TYPE EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ProductTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTB_PRODUCT_TYPE(TB_PRODUCT_TYPE tB_PRODUCT_TYPE)
+        public void AddToProductTypes(ProductType productType)
         {
-            base.AddObject("TB_PRODUCT_TYPE", tB_PRODUCT_TYPE);
+            base.AddObject("ProductTypes", productType);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the USERs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToUSERs(USER uSER)
+        public void AddToUsers(User user)
         {
-            base.AddObject("USERs", uSER);
+            base.AddObject("Users", user);
         }
 
         #endregion
@@ -334,28 +335,28 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="LOCATION")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Location")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class LOCATION : EntityObject
+    public partial class Location : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new LOCATION object.
+        /// Create a new Location object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="iD_Location_Type">Initial value of the ID_Location_Type property.</param>
         /// <param name="created_By">Initial value of the Created_By property.</param>
         /// <param name="created_On">Initial value of the Created_On property.</param>
-        public static LOCATION CreateLOCATION(global::System.Guid id, global::System.Guid iD_Location_Type, global::System.String created_By, global::System.DateTime created_On)
+        public static Location CreateLocation(global::System.Guid id, global::System.Guid iD_Location_Type, global::System.String created_By, global::System.DateTime created_On)
         {
-            LOCATION lOCATION = new LOCATION();
-            lOCATION.Id = id;
-            lOCATION.ID_Location_Type = iD_Location_Type;
-            lOCATION.Created_By = created_By;
-            lOCATION.Created_On = created_On;
-            return lOCATION;
+            Location location = new Location();
+            location.Id = id;
+            location.ID_Location_Type = iD_Location_Type;
+            location.Created_By = created_By;
+            location.Created_On = created_On;
+            return location;
         }
 
         #endregion
@@ -568,34 +569,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION_TYPE")]
-        public LOCATION_TYPE TB_LOCATION_TYPE
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Location_Location", "Location1")]
+        public EntityCollection<Location> Location1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LOCATION_TYPE>("DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION_TYPE").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LOCATION_TYPE>("DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION_TYPE").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<LOCATION_TYPE> TB_LOCATION_TYPEReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LOCATION_TYPE>("DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION_TYPE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Location>("DEYSoftModel.FK_Location_Location", "Location1");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LOCATION_TYPE>("DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION_TYPE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Location>("DEYSoftModel.FK_Location_Location", "Location1", value);
                 }
             }
         }
@@ -606,18 +591,94 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOTE_TB_LOCATION", "TB_LOTE")]
-        public EntityCollection<TB_LOTE> TB_LOTE
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Location_Location", "Location")]
+        public Location Location2
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_LOTE>("DEYSoftModel.FK_TB_LOTE_TB_LOCATION", "TB_LOTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("DEYSoftModel.FK_Location_Location", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("DEYSoftModel.FK_Location_Location", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> Location2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("DEYSoftModel.FK_Location_Location", "Location");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_LOTE>("DEYSoftModel.FK_TB_LOTE_TB_LOCATION", "TB_LOTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("DEYSoftModel.FK_Location_Location", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Location_LocationType", "LocationType")]
+        public LocationType LocationType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LocationType>("DEYSoftModel.FK_Location_LocationType", "LocationType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LocationType>("DEYSoftModel.FK_Location_LocationType", "LocationType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<LocationType> LocationTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LocationType>("DEYSoftModel.FK_Location_LocationType", "LocationType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LocationType>("DEYSoftModel.FK_Location_LocationType", "LocationType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Lote_Location", "Lote")]
+        public EntityCollection<Lote> Lotes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Lote>("DEYSoftModel.FK_Lote_Location", "Lote");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Lote>("DEYSoftModel.FK_Lote_Location", "Lote", value);
                 }
             }
         }
@@ -629,24 +690,24 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="LOCATION_TYPE")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="LocationType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class LOCATION_TYPE : EntityObject
+    public partial class LocationType : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new LOCATION_TYPE object.
+        /// Create a new LocationType object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static LOCATION_TYPE CreateLOCATION_TYPE(global::System.Guid id, global::System.String description)
+        public static LocationType CreateLocationType(global::System.Guid id, global::System.String description)
         {
-            LOCATION_TYPE lOCATION_TYPE = new LOCATION_TYPE();
-            lOCATION_TYPE.Id = id;
-            lOCATION_TYPE.Description = description;
-            return lOCATION_TYPE;
+            LocationType locationType = new LocationType();
+            locationType.Id = id;
+            locationType.Description = description;
+            return locationType;
         }
 
         #endregion
@@ -811,18 +872,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION")]
-        public EntityCollection<LOCATION> TB_LOCATION
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Location_LocationType", "Location")]
+        public EntityCollection<Location> Locations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LOCATION>("DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Location>("DEYSoftModel.FK_Location_LocationType", "Location");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LOCATION>("DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE", "TB_LOCATION", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Location>("DEYSoftModel.FK_Location_LocationType", "Location", value);
                 }
             }
         }
@@ -834,24 +895,32 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="MANUFACTURER")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Lote")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class MANUFACTURER : EntityObject
+    public partial class Lote : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new MANUFACTURER object.
+        /// Create a new Lote object.
         /// </summary>
-        /// <param name="iD_MANUFACTURER">Initial value of the ID_MANUFACTURER property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
-        public static MANUFACTURER CreateMANUFACTURER(global::System.Int32 iD_MANUFACTURER, global::System.String name)
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id_Product">Initial value of the Id_Product property.</param>
+        /// <param name="quantity">Initial value of the Quantity property.</param>
+        /// <param name="id_Location">Initial value of the Id_Location property.</param>
+        /// <param name="id_Package_Type">Initial value of the Id_Package_Type property.</param>
+        /// <param name="id_Package_Quantity">Initial value of the Id_Package_Quantity property.</param>
+        public static Lote CreateLote(global::System.Guid id, global::System.Guid id_Product, global::System.Int32 quantity, global::System.Guid id_Location, global::System.Guid id_Package_Type, global::System.Guid id_Package_Quantity)
         {
-            MANUFACTURER mANUFACTURER = new MANUFACTURER();
-            mANUFACTURER.ID_MANUFACTURER = iD_MANUFACTURER;
-            mANUFACTURER.Name = name;
-            return mANUFACTURER;
+            Lote lote = new Lote();
+            lote.Id = id;
+            lote.Id_Product = id_Product;
+            lote.Quantity = quantity;
+            lote.Id_Location = id_Location;
+            lote.Id_Package_Type = id_Package_Type;
+            lote.Id_Package_Quantity = id_Package_Quantity;
+            return lote;
         }
 
         #endregion
@@ -863,27 +932,466 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_MANUFACTURER
+        public global::System.Guid Id
         {
             get
             {
-                return _ID_MANUFACTURER;
+                return _Id;
             }
             set
             {
-                if (_ID_MANUFACTURER != value)
+                if (_Id != value)
                 {
-                    OnID_MANUFACTURERChanging(value);
-                    ReportPropertyChanging("ID_MANUFACTURER");
-                    _ID_MANUFACTURER = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_MANUFACTURER");
-                    OnID_MANUFACTURERChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ID_MANUFACTURER;
-        partial void OnID_MANUFACTURERChanging(global::System.Int32 value);
-        partial void OnID_MANUFACTURERChanged();
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id_Product
+        {
+            get
+            {
+                return _Id_Product;
+            }
+            set
+            {
+                OnId_ProductChanging(value);
+                ReportPropertyChanging("Id_Product");
+                _Id_Product = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Product");
+                OnId_ProductChanged();
+            }
+        }
+        private global::System.Guid _Id_Product;
+        partial void OnId_ProductChanging(global::System.Guid value);
+        partial void OnId_ProductChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Quantity
+        {
+            get
+            {
+                return _Quantity;
+            }
+            set
+            {
+                OnQuantityChanging(value);
+                ReportPropertyChanging("Quantity");
+                _Quantity = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Quantity");
+                OnQuantityChanged();
+            }
+        }
+        private global::System.Int32 _Quantity;
+        partial void OnQuantityChanging(global::System.Int32 value);
+        partial void OnQuantityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Cost
+        {
+            get
+            {
+                return _Cost;
+            }
+            set
+            {
+                OnCostChanging(value);
+                ReportPropertyChanging("Cost");
+                _Cost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Cost");
+                OnCostChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Cost;
+        partial void OnCostChanging(Nullable<global::System.Double> value);
+        partial void OnCostChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id_Location
+        {
+            get
+            {
+                return _Id_Location;
+            }
+            set
+            {
+                OnId_LocationChanging(value);
+                ReportPropertyChanging("Id_Location");
+                _Id_Location = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Location");
+                OnId_LocationChanged();
+            }
+        }
+        private global::System.Guid _Id_Location;
+        partial void OnId_LocationChanging(global::System.Guid value);
+        partial void OnId_LocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id_Package_Type
+        {
+            get
+            {
+                return _Id_Package_Type;
+            }
+            set
+            {
+                OnId_Package_TypeChanging(value);
+                ReportPropertyChanging("Id_Package_Type");
+                _Id_Package_Type = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Package_Type");
+                OnId_Package_TypeChanged();
+            }
+        }
+        private global::System.Guid _Id_Package_Type;
+        partial void OnId_Package_TypeChanging(global::System.Guid value);
+        partial void OnId_Package_TypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id_Package_Quantity
+        {
+            get
+            {
+                return _Id_Package_Quantity;
+            }
+            set
+            {
+                OnId_Package_QuantityChanging(value);
+                ReportPropertyChanging("Id_Package_Quantity");
+                _Id_Package_Quantity = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Package_Quantity");
+                OnId_Package_QuantityChanged();
+            }
+        }
+        private global::System.Guid _Id_Package_Quantity;
+        partial void OnId_Package_QuantityChanging(global::System.Guid value);
+        partial void OnId_Package_QuantityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Created_by
+        {
+            get
+            {
+                return _Created_by;
+            }
+            set
+            {
+                OnCreated_byChanging(value);
+                ReportPropertyChanging("Created_by");
+                _Created_by = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created_by");
+                OnCreated_byChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Created_by;
+        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        partial void OnCreated_byChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Created_on
+        {
+            get
+            {
+                return _Created_on;
+            }
+            set
+            {
+                OnCreated_onChanging(value);
+                ReportPropertyChanging("Created_on");
+                _Created_on = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created_on");
+                OnCreated_onChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Created_on;
+        partial void OnCreated_onChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreated_onChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Modified_by
+        {
+            get
+            {
+                return _Modified_by;
+            }
+            set
+            {
+                OnModified_byChanging(value);
+                ReportPropertyChanging("Modified_by");
+                _Modified_by = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Modified_by");
+                OnModified_byChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Modified_by;
+        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        partial void OnModified_byChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Modified_on
+        {
+            get
+            {
+                return _Modified_on;
+            }
+            set
+            {
+                OnModified_onChanging(value);
+                ReportPropertyChanging("Modified_on");
+                _Modified_on = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Modified_on");
+                OnModified_onChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Modified_on;
+        partial void OnModified_onChanging(Nullable<global::System.DateTime> value);
+        partial void OnModified_onChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Lote_Location", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("DEYSoftModel.FK_Lote_Location", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("DEYSoftModel.FK_Lote_Location", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("DEYSoftModel.FK_Lote_Location", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("DEYSoftModel.FK_Lote_Location", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Lote_PackageType", "PackageType")]
+        public PackageType PackageType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PackageType>("DEYSoftModel.FK_Lote_PackageType", "PackageType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PackageType>("DEYSoftModel.FK_Lote_PackageType", "PackageType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PackageType> PackageTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PackageType>("DEYSoftModel.FK_Lote_PackageType", "PackageType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PackageType>("DEYSoftModel.FK_Lote_PackageType", "PackageType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Lote_Product", "Product")]
+        public Product Product
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("DEYSoftModel.FK_Lote_Product", "Product").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("DEYSoftModel.FK_Lote_Product", "Product").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Product> ProductReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("DEYSoftModel.FK_Lote_Product", "Product");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("DEYSoftModel.FK_Lote_Product", "Product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Output_Lote", "Output")]
+        public EntityCollection<Output> Outputs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Output>("DEYSoftModel.FK_Output_Lote", "Output");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Output>("DEYSoftModel.FK_Output_Lote", "Output", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Manufacturer")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Manufacturer : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Manufacturer object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Manufacturer CreateManufacturer(global::System.Guid id, global::System.String name)
+        {
+            Manufacturer manufacturer = new Manufacturer();
+            manufacturer.Id = id;
+            manufacturer.Name = name;
+            return manufacturer;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1040,18 +1548,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_MODELS_TB_MANUFACTURER", "TB_MODEL")]
-        public EntityCollection<TB_MODEL> TB_MODEL
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Model_Manufacturer", "Model")]
+        public EntityCollection<Model> Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_MODEL>("DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER", "TB_MODEL");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Model>("DEYSoftModel.FK_Model_Manufacturer", "Model");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_MODEL>("DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER", "TB_MODEL", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Model>("DEYSoftModel.FK_Model_Manufacturer", "Model", value);
                 }
             }
         }
@@ -1062,18 +1570,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_PRODUCT")]
-        public EntityCollection<TB_PRODUCT> TB_PRODUCT
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Product_Manufacturer", "Product")]
+        public EntityCollection<Product> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_PRODUCT>("DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_PRODUCT");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("DEYSoftModel.FK_Product_Manufacturer", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_PRODUCT>("DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_PRODUCT", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("DEYSoftModel.FK_Product_Manufacturer", "Product", value);
                 }
             }
         }
@@ -1085,471 +1593,24 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="TB_LOTE")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Model")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TB_LOTE : EntityObject
+    public partial class Model : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TB_LOTE object.
+        /// Create a new Model object.
         /// </summary>
-        /// <param name="iD_LOTE">Initial value of the ID_LOTE property.</param>
-        /// <param name="iD_PRODUCT">Initial value of the ID_PRODUCT property.</param>
-        /// <param name="quantity">Initial value of the Quantity property.</param>
-        /// <param name="iD_Location">Initial value of the ID_Location property.</param>
-        /// <param name="iD_Type_Package">Initial value of the ID_Type_Package property.</param>
-        /// <param name="iD_Package_Quantity">Initial value of the ID_Package_Quantity property.</param>
-        public static TB_LOTE CreateTB_LOTE(global::System.Int32 iD_LOTE, global::System.Int32 iD_PRODUCT, global::System.Int32 quantity, global::System.Guid iD_Location, global::System.Int32 iD_Type_Package, global::System.Int32 iD_Package_Quantity)
+        /// <param name="id_Manufacturer">Initial value of the Id_Manufacturer property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static Model CreateModel(global::System.Guid id_Manufacturer, global::System.Guid id)
         {
-            TB_LOTE tB_LOTE = new TB_LOTE();
-            tB_LOTE.ID_LOTE = iD_LOTE;
-            tB_LOTE.ID_PRODUCT = iD_PRODUCT;
-            tB_LOTE.Quantity = quantity;
-            tB_LOTE.ID_Location = iD_Location;
-            tB_LOTE.ID_Type_Package = iD_Type_Package;
-            tB_LOTE.ID_Package_Quantity = iD_Package_Quantity;
-            return tB_LOTE;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_LOTE
-        {
-            get
-            {
-                return _ID_LOTE;
-            }
-            set
-            {
-                if (_ID_LOTE != value)
-                {
-                    OnID_LOTEChanging(value);
-                    ReportPropertyChanging("ID_LOTE");
-                    _ID_LOTE = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_LOTE");
-                    OnID_LOTEChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID_LOTE;
-        partial void OnID_LOTEChanging(global::System.Int32 value);
-        partial void OnID_LOTEChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_PRODUCT
-        {
-            get
-            {
-                return _ID_PRODUCT;
-            }
-            set
-            {
-                OnID_PRODUCTChanging(value);
-                ReportPropertyChanging("ID_PRODUCT");
-                _ID_PRODUCT = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_PRODUCT");
-                OnID_PRODUCTChanged();
-            }
-        }
-        private global::System.Int32 _ID_PRODUCT;
-        partial void OnID_PRODUCTChanging(global::System.Int32 value);
-        partial void OnID_PRODUCTChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Quantity
-        {
-            get
-            {
-                return _Quantity;
-            }
-            set
-            {
-                OnQuantityChanging(value);
-                ReportPropertyChanging("Quantity");
-                _Quantity = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Quantity");
-                OnQuantityChanged();
-            }
-        }
-        private global::System.Int32 _Quantity;
-        partial void OnQuantityChanging(global::System.Int32 value);
-        partial void OnQuantityChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Double> Cost
-        {
-            get
-            {
-                return _Cost;
-            }
-            set
-            {
-                OnCostChanging(value);
-                ReportPropertyChanging("Cost");
-                _Cost = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Cost");
-                OnCostChanged();
-            }
-        }
-        private Nullable<global::System.Double> _Cost;
-        partial void OnCostChanging(Nullable<global::System.Double> value);
-        partial void OnCostChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid ID_Location
-        {
-            get
-            {
-                return _ID_Location;
-            }
-            set
-            {
-                OnID_LocationChanging(value);
-                ReportPropertyChanging("ID_Location");
-                _ID_Location = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Location");
-                OnID_LocationChanged();
-            }
-        }
-        private global::System.Guid _ID_Location;
-        partial void OnID_LocationChanging(global::System.Guid value);
-        partial void OnID_LocationChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_Type_Package
-        {
-            get
-            {
-                return _ID_Type_Package;
-            }
-            set
-            {
-                OnID_Type_PackageChanging(value);
-                ReportPropertyChanging("ID_Type_Package");
-                _ID_Type_Package = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Type_Package");
-                OnID_Type_PackageChanged();
-            }
-        }
-        private global::System.Int32 _ID_Type_Package;
-        partial void OnID_Type_PackageChanging(global::System.Int32 value);
-        partial void OnID_Type_PackageChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_Package_Quantity
-        {
-            get
-            {
-                return _ID_Package_Quantity;
-            }
-            set
-            {
-                OnID_Package_QuantityChanging(value);
-                ReportPropertyChanging("ID_Package_Quantity");
-                _ID_Package_Quantity = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Package_Quantity");
-                OnID_Package_QuantityChanged();
-            }
-        }
-        private global::System.Int32 _ID_Package_Quantity;
-        partial void OnID_Package_QuantityChanging(global::System.Int32 value);
-        partial void OnID_Package_QuantityChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
-        {
-            get
-            {
-                return _Created_by;
-            }
-            set
-            {
-                OnCreated_byChanging(value);
-                ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Created_by");
-                OnCreated_byChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
-        partial void OnCreated_byChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Created_on
-        {
-            get
-            {
-                return _Created_on;
-            }
-            set
-            {
-                OnCreated_onChanging(value);
-                ReportPropertyChanging("Created_on");
-                _Created_on = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Created_on");
-                OnCreated_onChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Created_on;
-        partial void OnCreated_onChanging(Nullable<global::System.DateTime> value);
-        partial void OnCreated_onChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
-        {
-            get
-            {
-                return _Modified_by;
-            }
-            set
-            {
-                OnModified_byChanging(value);
-                ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Modified_by");
-                OnModified_byChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
-        partial void OnModified_byChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Modified_on
-        {
-            get
-            {
-                return _Modified_on;
-            }
-            set
-            {
-                OnModified_onChanging(value);
-                ReportPropertyChanging("Modified_on");
-                _Modified_on = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Modified_on");
-                OnModified_onChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Modified_on;
-        partial void OnModified_onChanging(Nullable<global::System.DateTime> value);
-        partial void OnModified_onChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOTE_TB_LOCATION", "TB_LOCATION")]
-        public LOCATION TB_LOCATION
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LOCATION>("DEYSoftModel.FK_TB_LOTE_TB_LOCATION", "TB_LOCATION").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LOCATION>("DEYSoftModel.FK_TB_LOTE_TB_LOCATION", "TB_LOCATION").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<LOCATION> TB_LOCATIONReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LOCATION>("DEYSoftModel.FK_TB_LOTE_TB_LOCATION", "TB_LOCATION");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LOCATION>("DEYSoftModel.FK_TB_LOTE_TB_LOCATION", "TB_LOCATION", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_PACKAGE_TYPE")]
-        public TB_PACKAGE_TYPE TB_PACKAGE_TYPE
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PACKAGE_TYPE>("DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_PACKAGE_TYPE").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PACKAGE_TYPE>("DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_PACKAGE_TYPE").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TB_PACKAGE_TYPE> TB_PACKAGE_TYPEReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PACKAGE_TYPE>("DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_PACKAGE_TYPE");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TB_PACKAGE_TYPE>("DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_PACKAGE_TYPE", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOTE_TBL_PRODUCT", "TB_PRODUCT")]
-        public TB_PRODUCT TB_PRODUCT
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PRODUCT>("DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT", "TB_PRODUCT").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PRODUCT>("DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT", "TB_PRODUCT").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TB_PRODUCT> TB_PRODUCTReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PRODUCT>("DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT", "TB_PRODUCT");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TB_PRODUCT>("DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT", "TB_PRODUCT", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_OUTPUT_TB_LOTE", "TB_OUTPUT")]
-        public EntityCollection<TB_OUTPUT> TB_OUTPUT
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_OUTPUT>("DEYSoftModel.FK_TB_OUTPUT_TB_LOTE", "TB_OUTPUT");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_OUTPUT>("DEYSoftModel.FK_TB_OUTPUT_TB_LOTE", "TB_OUTPUT", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="TB_MODEL")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class TB_MODEL : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new TB_MODEL object.
-        /// </summary>
-        /// <param name="iD_MANUFACTURER">Initial value of the ID_MANUFACTURER property.</param>
-        /// <param name="iD_MODELS">Initial value of the ID_MODELS property.</param>
-        public static TB_MODEL CreateTB_MODEL(global::System.Int32 iD_MANUFACTURER, global::System.Int32 iD_MODELS)
-        {
-            TB_MODEL tB_MODEL = new TB_MODEL();
-            tB_MODEL.ID_MANUFACTURER = iD_MANUFACTURER;
-            tB_MODEL.ID_MODELS = iD_MODELS;
-            return tB_MODEL;
+            Model model = new Model();
+            model.Id_Manufacturer = id_Manufacturer;
+            model.Id = id;
+            return model;
         }
 
         #endregion
@@ -1561,51 +1622,51 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_MANUFACTURER
+        public global::System.Guid Id_Manufacturer
         {
             get
             {
-                return _ID_MANUFACTURER;
+                return _Id_Manufacturer;
             }
             set
             {
-                OnID_MANUFACTURERChanging(value);
-                ReportPropertyChanging("ID_MANUFACTURER");
-                _ID_MANUFACTURER = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_MANUFACTURER");
-                OnID_MANUFACTURERChanged();
+                OnId_ManufacturerChanging(value);
+                ReportPropertyChanging("Id_Manufacturer");
+                _Id_Manufacturer = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Manufacturer");
+                OnId_ManufacturerChanged();
             }
         }
-        private global::System.Int32 _ID_MANUFACTURER;
-        partial void OnID_MANUFACTURERChanging(global::System.Int32 value);
-        partial void OnID_MANUFACTURERChanged();
+        private global::System.Guid _Id_Manufacturer;
+        partial void OnId_ManufacturerChanging(global::System.Guid value);
+        partial void OnId_ManufacturerChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_MODELS
+        public global::System.Guid Id
         {
             get
             {
-                return _ID_MODELS;
+                return _Id;
             }
             set
             {
-                if (_ID_MODELS != value)
+                if (_Id != value)
                 {
-                    OnID_MODELSChanging(value);
-                    ReportPropertyChanging("ID_MODELS");
-                    _ID_MODELS = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_MODELS");
-                    OnID_MODELSChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ID_MODELS;
-        partial void OnID_MODELSChanging(global::System.Int32 value);
-        partial void OnID_MODELSChanged();
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1738,16 +1799,16 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_MODELS_TB_MANUFACTURER", "TB_MANUFACTURER")]
-        public MANUFACTURER TB_MANUFACTURER
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Model_Manufacturer", "Manufacturer")]
+        public Manufacturer Manufacturer
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER", "TB_MANUFACTURER").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Manufacturer>("DEYSoftModel.FK_Model_Manufacturer", "Manufacturer").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER", "TB_MANUFACTURER").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Manufacturer>("DEYSoftModel.FK_Model_Manufacturer", "Manufacturer").Value = value;
             }
         }
         /// <summary>
@@ -1755,17 +1816,17 @@ namespace Domain.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<MANUFACTURER> TB_MANUFACTURERReference
+        public EntityReference<Manufacturer> ManufacturerReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER", "TB_MANUFACTURER");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Manufacturer>("DEYSoftModel.FK_Model_Manufacturer", "Manufacturer");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER", "TB_MANUFACTURER", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Manufacturer>("DEYSoftModel.FK_Model_Manufacturer", "Manufacturer", value);
                 }
             }
         }
@@ -1776,18 +1837,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_MODELS", "TB_PRODUCT")]
-        public EntityCollection<TB_PRODUCT> TB_PRODUCT
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Product_Model", "Product")]
+        public EntityCollection<Product> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_PRODUCT>("DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS", "TB_PRODUCT");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("DEYSoftModel.FK_Product_Model", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_PRODUCT>("DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS", "TB_PRODUCT", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("DEYSoftModel.FK_Product_Model", "Product", value);
                 }
             }
         }
@@ -1799,28 +1860,28 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="TB_OUTPUT")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Output")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TB_OUTPUT : EntityObject
+    public partial class Output : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TB_OUTPUT object.
+        /// Create a new Output object.
         /// </summary>
-        /// <param name="iD_OUTPUT">Initial value of the ID_OUTPUT property.</param>
-        /// <param name="iD_LOTE">Initial value of the ID_LOTE property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id_Lote">Initial value of the Id_Lote property.</param>
         /// <param name="quantity">Initial value of the Quantity property.</param>
         /// <param name="price">Initial value of the Price property.</param>
-        public static TB_OUTPUT CreateTB_OUTPUT(global::System.Int32 iD_OUTPUT, global::System.Int32 iD_LOTE, global::System.Int32 quantity, global::System.Double price)
+        public static Output CreateOutput(global::System.Guid id, global::System.Guid id_Lote, global::System.Int32 quantity, global::System.Double price)
         {
-            TB_OUTPUT tB_OUTPUT = new TB_OUTPUT();
-            tB_OUTPUT.ID_OUTPUT = iD_OUTPUT;
-            tB_OUTPUT.ID_LOTE = iD_LOTE;
-            tB_OUTPUT.Quantity = quantity;
-            tB_OUTPUT.Price = price;
-            return tB_OUTPUT;
+            Output output = new Output();
+            output.Id = id;
+            output.Id_Lote = id_Lote;
+            output.Quantity = quantity;
+            output.Price = price;
+            return output;
         }
 
         #endregion
@@ -1832,51 +1893,51 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_OUTPUT
+        public global::System.Guid Id
         {
             get
             {
-                return _ID_OUTPUT;
+                return _Id;
             }
             set
             {
-                if (_ID_OUTPUT != value)
+                if (_Id != value)
                 {
-                    OnID_OUTPUTChanging(value);
-                    ReportPropertyChanging("ID_OUTPUT");
-                    _ID_OUTPUT = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_OUTPUT");
-                    OnID_OUTPUTChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ID_OUTPUT;
-        partial void OnID_OUTPUTChanging(global::System.Int32 value);
-        partial void OnID_OUTPUTChanged();
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_LOTE
+        public global::System.Guid Id_Lote
         {
             get
             {
-                return _ID_LOTE;
+                return _Id_Lote;
             }
             set
             {
-                OnID_LOTEChanging(value);
-                ReportPropertyChanging("ID_LOTE");
-                _ID_LOTE = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_LOTE");
-                OnID_LOTEChanged();
+                OnId_LoteChanging(value);
+                ReportPropertyChanging("Id_Lote");
+                _Id_Lote = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Lote");
+                OnId_LoteChanged();
             }
         }
-        private global::System.Int32 _ID_LOTE;
-        partial void OnID_LOTEChanging(global::System.Int32 value);
-        partial void OnID_LOTEChanged();
+        private global::System.Guid _Id_Lote;
+        partial void OnId_LoteChanging(global::System.Guid value);
+        partial void OnId_LoteChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2081,16 +2142,16 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_OUTPUT_TB_LOTE", "TB_LOTE")]
-        public TB_LOTE TB_LOTE
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Output_Lote", "Lote")]
+        public Lote Lote
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_LOTE>("DEYSoftModel.FK_TB_OUTPUT_TB_LOTE", "TB_LOTE").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lote>("DEYSoftModel.FK_Output_Lote", "Lote").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_LOTE>("DEYSoftModel.FK_TB_OUTPUT_TB_LOTE", "TB_LOTE").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lote>("DEYSoftModel.FK_Output_Lote", "Lote").Value = value;
             }
         }
         /// <summary>
@@ -2098,17 +2159,17 @@ namespace Domain.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<TB_LOTE> TB_LOTEReference
+        public EntityReference<Lote> LoteReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_LOTE>("DEYSoftModel.FK_TB_OUTPUT_TB_LOTE", "TB_LOTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lote>("DEYSoftModel.FK_Output_Lote", "Lote");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TB_LOTE>("DEYSoftModel.FK_TB_OUTPUT_TB_LOTE", "TB_LOTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Lote>("DEYSoftModel.FK_Output_Lote", "Lote", value);
                 }
             }
         }
@@ -2120,22 +2181,22 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="TB_PACKAGE_TYPE")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="PackageType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TB_PACKAGE_TYPE : EntityObject
+    public partial class PackageType : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TB_PACKAGE_TYPE object.
+        /// Create a new PackageType object.
         /// </summary>
-        /// <param name="iD_Type_Package">Initial value of the ID_Type_Package property.</param>
-        public static TB_PACKAGE_TYPE CreateTB_PACKAGE_TYPE(global::System.Int32 iD_Type_Package)
+        /// <param name="id">Initial value of the Id property.</param>
+        public static PackageType CreatePackageType(global::System.Guid id)
         {
-            TB_PACKAGE_TYPE tB_PACKAGE_TYPE = new TB_PACKAGE_TYPE();
-            tB_PACKAGE_TYPE.ID_Type_Package = iD_Type_Package;
-            return tB_PACKAGE_TYPE;
+            PackageType packageType = new PackageType();
+            packageType.Id = id;
+            return packageType;
         }
 
         #endregion
@@ -2147,27 +2208,27 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_Type_Package
+        public global::System.Guid Id
         {
             get
             {
-                return _ID_Type_Package;
+                return _Id;
             }
             set
             {
-                if (_ID_Type_Package != value)
+                if (_Id != value)
                 {
-                    OnID_Type_PackageChanging(value);
-                    ReportPropertyChanging("ID_Type_Package");
-                    _ID_Type_Package = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_Type_Package");
-                    OnID_Type_PackageChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ID_Type_Package;
-        partial void OnID_Type_PackageChanging(global::System.Int32 value);
-        partial void OnID_Type_PackageChanged();
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2300,18 +2361,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_LOTE")]
-        public EntityCollection<TB_LOTE> TB_LOTE
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Lote_PackageType", "Lote")]
+        public EntityCollection<Lote> Lotes
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_LOTE>("DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_LOTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Lote>("DEYSoftModel.FK_Lote_PackageType", "Lote");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_LOTE>("DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE", "TB_LOTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Lote>("DEYSoftModel.FK_Lote_PackageType", "Lote", value);
                 }
             }
         }
@@ -2323,26 +2384,26 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="TB_PRODUCT")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Product")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TB_PRODUCT : EntityObject
+    public partial class Product : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TB_PRODUCT object.
+        /// Create a new Product object.
         /// </summary>
-        /// <param name="iD_PRODUCT">Initial value of the ID_PRODUCT property.</param>
-        /// <param name="iD_Product_Type">Initial value of the ID_Product_Type property.</param>
-        /// <param name="iD_Manufacturer">Initial value of the ID_Manufacturer property.</param>
-        public static TB_PRODUCT CreateTB_PRODUCT(global::System.Int32 iD_PRODUCT, global::System.Int32 iD_Product_Type, global::System.Int32 iD_Manufacturer)
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id_Product_Type">Initial value of the Id_Product_Type property.</param>
+        /// <param name="id_Manufacturer">Initial value of the Id_Manufacturer property.</param>
+        public static Product CreateProduct(global::System.Guid id, global::System.Guid id_Product_Type, global::System.Guid id_Manufacturer)
         {
-            TB_PRODUCT tB_PRODUCT = new TB_PRODUCT();
-            tB_PRODUCT.ID_PRODUCT = iD_PRODUCT;
-            tB_PRODUCT.ID_Product_Type = iD_Product_Type;
-            tB_PRODUCT.ID_Manufacturer = iD_Manufacturer;
-            return tB_PRODUCT;
+            Product product = new Product();
+            product.Id = id;
+            product.Id_Product_Type = id_Product_Type;
+            product.Id_Manufacturer = id_Manufacturer;
+            return product;
         }
 
         #endregion
@@ -2354,27 +2415,27 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_PRODUCT
+        public global::System.Guid Id
         {
             get
             {
-                return _ID_PRODUCT;
+                return _Id;
             }
             set
             {
-                if (_ID_PRODUCT != value)
+                if (_Id != value)
                 {
-                    OnID_PRODUCTChanging(value);
-                    ReportPropertyChanging("ID_PRODUCT");
-                    _ID_PRODUCT = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_PRODUCT");
-                    OnID_PRODUCTChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ID_PRODUCT;
-        partial void OnID_PRODUCTChanging(global::System.Int32 value);
-        partial void OnID_PRODUCTChanged();
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2405,24 +2466,24 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_Product_Type
+        public global::System.Guid Id_Product_Type
         {
             get
             {
-                return _ID_Product_Type;
+                return _Id_Product_Type;
             }
             set
             {
-                OnID_Product_TypeChanging(value);
-                ReportPropertyChanging("ID_Product_Type");
-                _ID_Product_Type = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Product_Type");
-                OnID_Product_TypeChanged();
+                OnId_Product_TypeChanging(value);
+                ReportPropertyChanging("Id_Product_Type");
+                _Id_Product_Type = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Product_Type");
+                OnId_Product_TypeChanged();
             }
         }
-        private global::System.Int32 _ID_Product_Type;
-        partial void OnID_Product_TypeChanging(global::System.Int32 value);
-        partial void OnID_Product_TypeChanged();
+        private global::System.Guid _Id_Product_Type;
+        partial void OnId_Product_TypeChanging(global::System.Guid value);
+        partial void OnId_Product_TypeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2477,48 +2538,48 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_Manufacturer
+        public global::System.Guid Id_Manufacturer
         {
             get
             {
-                return _ID_Manufacturer;
+                return _Id_Manufacturer;
             }
             set
             {
-                OnID_ManufacturerChanging(value);
-                ReportPropertyChanging("ID_Manufacturer");
-                _ID_Manufacturer = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Manufacturer");
-                OnID_ManufacturerChanged();
+                OnId_ManufacturerChanging(value);
+                ReportPropertyChanging("Id_Manufacturer");
+                _Id_Manufacturer = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Manufacturer");
+                OnId_ManufacturerChanged();
             }
         }
-        private global::System.Int32 _ID_Manufacturer;
-        partial void OnID_ManufacturerChanging(global::System.Int32 value);
-        partial void OnID_ManufacturerChanged();
+        private global::System.Guid _Id_Manufacturer;
+        partial void OnId_ManufacturerChanging(global::System.Guid value);
+        partial void OnId_ManufacturerChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_Models
+        public Nullable<global::System.Guid> Id_Model
         {
             get
             {
-                return _ID_Models;
+                return _Id_Model;
             }
             set
             {
-                OnID_ModelsChanging(value);
-                ReportPropertyChanging("ID_Models");
-                _ID_Models = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Models");
-                OnID_ModelsChanged();
+                OnId_ModelChanging(value);
+                ReportPropertyChanging("Id_Model");
+                _Id_Model = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Model");
+                OnId_ModelChanged();
             }
         }
-        private Nullable<global::System.Int32> _ID_Models;
-        partial void OnID_ModelsChanging(Nullable<global::System.Int32> value);
-        partial void OnID_ModelsChanged();
+        private Nullable<global::System.Guid> _Id_Model;
+        partial void OnId_ModelChanging(Nullable<global::System.Guid> value);
+        partial void OnId_ModelChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2699,18 +2760,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TB_LOTE_TBL_PRODUCT", "TB_LOTE")]
-        public EntityCollection<TB_LOTE> TB_LOTE
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Lote_Product", "Lote")]
+        public EntityCollection<Lote> Lotes
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_LOTE>("DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT", "TB_LOTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Lote>("DEYSoftModel.FK_Lote_Product", "Lote");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_LOTE>("DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT", "TB_LOTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Lote>("DEYSoftModel.FK_Lote_Product", "Lote", value);
                 }
             }
         }
@@ -2721,16 +2782,16 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_MANUFACTURER")]
-        public MANUFACTURER TB_MANUFACTURER
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Product_Manufacturer", "Manufacturer")]
+        public Manufacturer Manufacturer
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_MANUFACTURER").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Manufacturer>("DEYSoftModel.FK_Product_Manufacturer", "Manufacturer").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_MANUFACTURER").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Manufacturer>("DEYSoftModel.FK_Product_Manufacturer", "Manufacturer").Value = value;
             }
         }
         /// <summary>
@@ -2738,17 +2799,17 @@ namespace Domain.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<MANUFACTURER> TB_MANUFACTURERReference
+        public EntityReference<Manufacturer> ManufacturerReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_MANUFACTURER");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Manufacturer>("DEYSoftModel.FK_Product_Manufacturer", "Manufacturer");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MANUFACTURER>("DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER", "TB_MANUFACTURER", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Manufacturer>("DEYSoftModel.FK_Product_Manufacturer", "Manufacturer", value);
                 }
             }
         }
@@ -2759,16 +2820,16 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_MODELS", "TB_MODEL")]
-        public TB_MODEL TB_MODEL
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Product_Model", "Model")]
+        public Model Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_MODEL>("DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS", "TB_MODEL").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Model>("DEYSoftModel.FK_Product_Model", "Model").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_MODEL>("DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS", "TB_MODEL").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Model>("DEYSoftModel.FK_Product_Model", "Model").Value = value;
             }
         }
         /// <summary>
@@ -2776,17 +2837,17 @@ namespace Domain.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<TB_MODEL> TB_MODELReference
+        public EntityReference<Model> ModelReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_MODEL>("DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS", "TB_MODEL");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Model>("DEYSoftModel.FK_Product_Model", "Model");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TB_MODEL>("DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS", "TB_MODEL", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Model>("DEYSoftModel.FK_Product_Model", "Model", value);
                 }
             }
         }
@@ -2797,16 +2858,16 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT_TYPE")]
-        public TB_PRODUCT_TYPE TB_PRODUCT_TYPE
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Product_ProductType", "ProductType")]
+        public ProductType ProductType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PRODUCT_TYPE>("DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT_TYPE").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductType>("DEYSoftModel.FK_Product_ProductType", "ProductType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PRODUCT_TYPE>("DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT_TYPE").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductType>("DEYSoftModel.FK_Product_ProductType", "ProductType").Value = value;
             }
         }
         /// <summary>
@@ -2814,17 +2875,17 @@ namespace Domain.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<TB_PRODUCT_TYPE> TB_PRODUCT_TYPEReference
+        public EntityReference<ProductType> ProductTypeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TB_PRODUCT_TYPE>("DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT_TYPE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductType>("DEYSoftModel.FK_Product_ProductType", "ProductType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TB_PRODUCT_TYPE>("DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT_TYPE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductType>("DEYSoftModel.FK_Product_ProductType", "ProductType", value);
                 }
             }
         }
@@ -2836,22 +2897,22 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="TB_PRODUCT_TYPE")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="ProductType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TB_PRODUCT_TYPE : EntityObject
+    public partial class ProductType : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TB_PRODUCT_TYPE object.
+        /// Create a new ProductType object.
         /// </summary>
-        /// <param name="iD_PRODUCT_TYPE">Initial value of the ID_PRODUCT_TYPE property.</param>
-        public static TB_PRODUCT_TYPE CreateTB_PRODUCT_TYPE(global::System.Int32 iD_PRODUCT_TYPE)
+        /// <param name="id">Initial value of the Id property.</param>
+        public static ProductType CreateProductType(global::System.Guid id)
         {
-            TB_PRODUCT_TYPE tB_PRODUCT_TYPE = new TB_PRODUCT_TYPE();
-            tB_PRODUCT_TYPE.ID_PRODUCT_TYPE = iD_PRODUCT_TYPE;
-            return tB_PRODUCT_TYPE;
+            ProductType productType = new ProductType();
+            productType.Id = id;
+            return productType;
         }
 
         #endregion
@@ -2863,27 +2924,27 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_PRODUCT_TYPE
+        public global::System.Guid Id
         {
             get
             {
-                return _ID_PRODUCT_TYPE;
+                return _Id;
             }
             set
             {
-                if (_ID_PRODUCT_TYPE != value)
+                if (_Id != value)
                 {
-                    OnID_PRODUCT_TYPEChanging(value);
-                    ReportPropertyChanging("ID_PRODUCT_TYPE");
-                    _ID_PRODUCT_TYPE = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID_PRODUCT_TYPE");
-                    OnID_PRODUCT_TYPEChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ID_PRODUCT_TYPE;
-        partial void OnID_PRODUCT_TYPEChanging(global::System.Int32 value);
-        partial void OnID_PRODUCT_TYPEChanged();
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3016,18 +3077,18 @@ namespace Domain.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT")]
-        public EntityCollection<TB_PRODUCT> TB_PRODUCT
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Product_ProductType", "Product")]
+        public EntityCollection<Product> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TB_PRODUCT>("DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("DEYSoftModel.FK_Product_ProductType", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TB_PRODUCT>("DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE", "TB_PRODUCT", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("DEYSoftModel.FK_Product_ProductType", "Product", value);
                 }
             }
         }
@@ -3039,15 +3100,15 @@ namespace Domain.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="USER")]
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class USER : EntityObject
+    public partial class User : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new USER object.
+        /// Create a new User object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="username">Initial value of the Username property.</param>
@@ -3058,19 +3119,19 @@ namespace Domain.Model
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
         /// <param name="passwordAttemptsCount">Initial value of the PasswordAttemptsCount property.</param>
         /// <param name="passwordAnswerAttemptsCount">Initial value of the PasswordAnswerAttemptsCount property.</param>
-        public static USER CreateUSER(global::System.Guid id, global::System.String username, global::System.String name, global::System.String lastname, global::System.String email, global::System.String password, global::System.DateTime creationDate, global::System.Int32 passwordAttemptsCount, global::System.Int32 passwordAnswerAttemptsCount)
+        public static User CreateUser(global::System.Guid id, global::System.String username, global::System.String name, global::System.String lastname, global::System.String email, global::System.String password, global::System.DateTime creationDate, global::System.Int32 passwordAttemptsCount, global::System.Int32 passwordAnswerAttemptsCount)
         {
-            USER uSER = new USER();
-            uSER.Id = id;
-            uSER.Username = username;
-            uSER.Name = name;
-            uSER.Lastname = lastname;
-            uSER.Email = email;
-            uSER.Password = password;
-            uSER.CreationDate = creationDate;
-            uSER.PasswordAttemptsCount = passwordAttemptsCount;
-            uSER.PasswordAnswerAttemptsCount = passwordAnswerAttemptsCount;
-            return uSER;
+            User user = new User();
+            user.Id = id;
+            user.Username = username;
+            user.Name = name;
+            user.Lastname = lastname;
+            user.Email = email;
+            user.Password = password;
+            user.CreationDate = creationDate;
+            user.PasswordAttemptsCount = passwordAttemptsCount;
+            user.PasswordAnswerAttemptsCount = passwordAnswerAttemptsCount;
+            return user;
         }
 
         #endregion

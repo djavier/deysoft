@@ -66,13 +66,13 @@ namespace Deysoft.Tests
     [TestMethod]
     public void CanCreateUser()
     {
-      IRepository<User> repo = new UserRepository();
+      UserRepository repo = new UserRepository();
       User User = new User();
-      User.Username = "ERosario";
-      User.Name = "Ezequiel";
-      User.Lastname = "Rosario";
-      User.Email = "ezequiel189@hotmail.com";                    
-      User.Password = Infraestructure.DataHandle.Hash.SHA256("erosario");                 
+      User.Username = "YGonzalez";
+      User.Name = "Yeudy";
+      User.Lastname = "Gonzalez";
+      User.Email = "yeudy87@gmail.com";                    
+      User.Password = Infraestructure.DataHandle.Hash.SHA256("ygonzalez");                 
       User.PasswordQuestion = "";         
       User.PasswordAnswer ="";
       User.LastLoginDate = DateTime.Now;
@@ -93,8 +93,8 @@ namespace Deysoft.Tests
 
         using (var service = new Service.UserService())
         {
-          string username = "Djavier";
-          string password = "javier";
+          string username = "YGonzalez";
+          string password = "gonzalez";
           Assert.IsTrue(service.ValidateUser(username, password));
         }
       
@@ -107,9 +107,9 @@ namespace Deysoft.Tests
     {
       using (var service = new Service.UserService())
       {
-        string username = "Djavier";
-        string oldPassword = "djavier";
-        string newPassword = "javier";
+        string username = "YGonzalez";
+        string oldPassword = "ygonzalez";
+        string newPassword = "gonzalez";
 
         Assert.IsTrue(service.ChangePassword(username, oldPassword, newPassword));
       }
@@ -173,7 +173,7 @@ namespace Deysoft.Tests
         {
           Location loc = new Location();
           loc.Description = "Bloque 2";
-          loc.LocationType = service.GetLocationType("C4BC2F24-6B59-4839-8A88-2BBB7DAAC452");
+          loc.ID_Location_Type = service.GetLocationType("C4BC2F24-6B59-4839-8A88-2BBB7DAAC452").Id;
 
           string username = "Djavier";
           service.CreateLocation(loc,username);

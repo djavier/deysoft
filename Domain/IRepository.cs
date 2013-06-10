@@ -13,15 +13,7 @@ namespace Domain
     void Delete(T entiy);
     void Delete(Guid id);
     T GetById(Guid id);
-    T GetById(int id);
     IList<T> GetAll();
   }
-
-  public interface IUserRepository : IRepository<USER>
-  {
-    USER GetByUsername(string username);
-  }
-
-
 
 }

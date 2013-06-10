@@ -22,10 +22,10 @@
             @Html.ValidationMessageFor(model => model.Description)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.LocationType.Id, new SelectList(ViewBag.LocationTypeList, "Id", "Description"), "Please select a Location Type"); 
+            @Html.DropDownListFor(model => model.ID_Location_Type, new SelectList(ViewBag.LocationTypeList, "Id", "Description"), "Please select a Location Type"); 
        </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.Father.Id, new SelectList(ViewBag.LocationList,"Id","Description"),"Please select a Location father"); 
+            @Html.DropDownListFor(model => model.Father_ID, new SelectList(ViewBag.LocationList,"Id","Description"),"Please select a Location father"); 
        </div>
         <p>
             <input type="submit" value="Create" />

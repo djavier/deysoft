@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Domain.Model;
-using NHibernate;
-using NHibernate.Criterion;
+using System.Transactions;
 
 namespace Domain.Repositories
 {
@@ -12,16 +11,18 @@ namespace Domain.Repositories
   {
     #region ILocationRepository Members
 
-    void IRepository<Location>.Save(Location entity)
+   public void Save(Location entity)
     {
-      using (ISession session = NHibernateHelper.OpenSession())
+      using (var session = new DEYSoftEntities())
       {
-        using (ITransaction transaction = session.BeginTransaction())
+        using (var tran = new TransactionScope())
         {
           try
           {
-            session.Save(entity);
-            transaction.Commit();
+            session.Locations.AddObject(entity);
+            session.ObjectStateManager.ChangeObjectState(entity, System.Data.EntityState.Added);
+            session.SaveChanges();
+            tran.Complete();
           }
           catch (Exception ex)
           {
@@ -31,62 +32,62 @@ namespace Domain.Repositories
       }
     }
 
-    void IRepository<Location>.Update(Location entity)
+   public void Update(Location entity)
     {
-      using (ISession session = NHibernateHelper.OpenSession())
+      using (var session = new DEYSoftEntities())
       {
-        using (ITransaction transaction = session.BeginTransaction())
+        using (var tran = new TransactionScope())
         {
-          session.Update(entity);
-          transaction.Commit();
+          session.Locations.Attach(entity);
+          session.ObjectStateManager.ChangeObjectState(entity, System.Data.EntityState.Modified);
+          session.SaveChanges();
+          tran.Complete();
         }
       }
     }
 
 
 
-    Location IRepository<Location>.GetById(Guid id)
+   public Location GetById(Guid id)
     {
-      using (ISession session = NHibernateHelper.OpenSession())
-        return session.CreateCriteria<Location>().Add(Restrictions.Eq("Id", id)).UniqueResult<Location>();
+      using (var session = new DEYSoftEntities())
+        return session.Locations.Where(x => x.Id == id).FirstOrDefault();
     }
 
-    IList<Location> IRepository<Location>.GetAll()
+   public IList<Location> GetAll()
     {
-      using (ISession session = NHibernateHelper.OpenSession())
-        return session.QueryOver<Location>().List();
+      using (var session = new DEYSoftEntities())
+        return session.Locations.ToList();
     }
 
-    void IRepository<Location>.Delete(Location entity)
+   public void Delete(Location entity)
     {
-      using (ISession session = NHibernateHelper.OpenSession())
+      using (var session = new DEYSoftEntities())
       {
-        using (ITransaction transaction = session.BeginTransaction())
+        using (var tran = new TransactionScope())
         {
-          session.Delete(entity);
-          transaction.Commit();
+          session.DeleteObject(entity);
+          session.ObjectStateManager.ChangeObjectState(entity, System.Data.EntityState.Deleted);
+          session.SaveChanges();
+          tran.Complete();
         }
       }
     }
 
-    void IRepository<Location>.Delete(Guid id)
-    {
-      using (ISession session = NHibernateHelper.OpenSession())
-      {
-        using (ITransaction transaction = session.BeginTransaction())
-        {
-          session.Delete(id);
-          transaction.Commit();
-        }
-      }
-    }
+   public void Delete(Guid id)
+   {
+     using (var session = new DEYSoftEntities())
+     {
+       using (var tran = new TransactionScope())
+       {
+         session.DeleteObject(this.GetById(id));
+         session.SaveChanges();
+         tran.Complete();
+       }
+     }
+   }
 
-    Location IRepository<Location>.GetById(int id)
-    {
-      using (ISession session = NHibernateHelper.OpenSession())
-        return session.CreateCriteria<Location>().Add(Restrictions.Eq("Id", id)).UniqueResult<Location>();
-    }
-
+  
     #endregion
   }
 }

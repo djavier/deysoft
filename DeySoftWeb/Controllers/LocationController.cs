@@ -44,16 +44,22 @@ namespace DeySoftWeb.Controllers
 
         public ActionResult Update(string id)
         {
-          LocationService service = new LocationService();
-          ViewBag.LocationList = service.GetLocation().ToList();
-          ViewBag.LocationTypeList = service.GetLocationType().ToList();
-          return View(service.GetLocation(id));
+          using (LocationService service = new LocationService())
+          {
+            ViewBag.LocationList = service.GetLocation().ToList();
+            ViewBag.LocationTypeList = service.GetLocationType().ToList();
+            return View(service.GetLocation(id));
+          }
         }
 
         [HttpPost]
         public ActionResult Update(Location location)
         {
-          return RedirectToAction("List");
+          using (LocationService service = new LocationService())
+          {
+            service.UpdateLocation(location, User.Identity.Name);
+            return RedirectToAction("List");
+          }
         }
 
     }

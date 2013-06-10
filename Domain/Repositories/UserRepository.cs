@@ -7,94 +7,89 @@ using System.Transactions;
 
 namespace Domain.Repositories
 {
-  public class UserRepository : IUserRepository
+  public class UserRepository : IRepository<User>
   {
     #region IUserRepository Members
 
-    void IRepository<USER>.Save(USER entity)
+    public void Save(User entity)
     {
       using (var session = new DEYSoftEntities())
       {
         using (var tran = new TransactionScope())
         {
-          session.AddObject(entity.EntityKey.EntitySetName, entity);
+          session.Users.AddObject(entity);
+          session.ObjectStateManager.ChangeObjectState(entity, System.Data.EntityState.Added);
           session.SaveChanges();
+          tran.Complete();
         }
       }
     }
 
-    void IRepository<USER>.Update(USER entity)
+    public void Update(User entity)
     {
       using (var session = new DEYSoftEntities())
       {
         using (var tran = new TransactionScope())
         {
-          session.AddObject(entity.EntityKey.EntitySetName, entity);
+          session.Users.Attach(entity);
+          session.ObjectStateManager.ChangeObjectState(entity, System.Data.EntityState.Modified);
           session.SaveChanges();
+          tran.Complete();
         }
       }
     }
 
 
 
-    USER IRepository<USER>.GetById(Guid id)
+    public User GetById(Guid id)
     {
       using (var session = new DEYSoftEntities())
-        return session.USERs.Where(x => x.Id == id).FirstOrDefault();
+        return session.Users.Where(x => x.Id == id).FirstOrDefault();
     }
 
-    IList<USER> IRepository<USER>.GetAll()
+    public IList<User> GetAll()
     {
       using (var session = new DEYSoftEntities())
-        return session.QueryOver<User>().List();
+        return session.Users.ToList();
     }
 
-    void IRepository<User>.Delete(USER entity)
+    public void Delete(User entity)
     {
       using (var session = new DEYSoftEntities())
       {
         using (var tran = new TransactionScope())
         {
           session.DeleteObject(entity);
+          session.ObjectStateManager.ChangeObjectState(entity, System.Data.EntityState.Deleted);
           session.SaveChanges();
+          tran.Complete();
         }
       }
     }
 
-    void IRepository<User>.Delete(Guid id)
+    public void Delete(Guid id)
     {
       using (var session = new DEYSoftEntities())
       {
         using (var tran = new TransactionScope())
         {
-          session.DeleteObject(GetById(id));
-          transaction.Commit();
+          session.DeleteObject(this.GetById(id));
+          
+          session.SaveChanges();
+          tran.Complete();
         }
       }
     }
 
 
-    USER IUserRepository.GetByUsername(string username)
+    #endregion
+
+
+    public User GetByUsername(string username)
     {
       using (var session = new DEYSoftEntities())
-        return session.CreateCriteria<User>().Add(Restrictions.Eq("Username", username)).UniqueResult<User>();
+        return session.Users.Where(x => x.Username == username).FirstOrDefault();
     }
 
-    #endregion
-
-
-
-
-
-
-    #region IRepository<USER>Members
-
-
-    public USER GetById(int id)
-    {
-      throw new NotImplementedException();
-    }
-
-    #endregion
   }
 }

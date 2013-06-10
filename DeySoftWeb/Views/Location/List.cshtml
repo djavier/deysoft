@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Domain.Model.Location>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Locations";
 }
 
 <h2>Create</h2>
@@ -35,16 +35,16 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Created_by)
+            @Html.DisplayFor(modelItem => item.Created_By)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Created_on)
+            @Html.DisplayFor(modelItem => item.Created_On)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Modified_by)
+            @Html.DisplayFor(modelItem => item.Modified_By)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Modified_on)
+            @Html.DisplayFor(modelItem => item.Modified_On)
         </td>
         <td>
             @*@Html.DisplayFor(modelItem => item.Childrens.Count())*@

@@ -4,56 +4,60 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DEYSoftModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="DEYSoftModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DEYSoftModelStoreContainer">
-          <EntitySet Name="TB_LOCATION" EntityType="DEYSoftModel.Store.TB_LOCATION" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_LOCATION_TYPE" EntityType="DEYSoftModel.Store.TB_LOCATION_TYPE" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_LOTE" EntityType="DEYSoftModel.Store.TB_LOTE" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_MANUFACTURER" EntityType="DEYSoftModel.Store.TB_MANUFACTURER" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_MODEL" EntityType="DEYSoftModel.Store.TB_MODEL" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_OUTPUT" EntityType="DEYSoftModel.Store.TB_OUTPUT" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_PACKAGE_TYPE" EntityType="DEYSoftModel.Store.TB_PACKAGE_TYPE" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_PRODUCT" EntityType="DEYSoftModel.Store.TB_PRODUCT" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_PRODUCT_TYPE" EntityType="DEYSoftModel.Store.TB_PRODUCT_TYPE" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TB_USER" EntityType="DEYSoftModel.Store.TB_USER" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_TB_LOCATION_TB_LOCATION_TYPE" Association="DEYSoftModel.Store.FK_TB_LOCATION_TB_LOCATION_TYPE">
-            <End Role="TB_LOCATION_TYPE" EntitySet="TB_LOCATION_TYPE" />
-            <End Role="TB_LOCATION" EntitySet="TB_LOCATION" />
+          <EntitySet Name="Location" EntityType="DEYSoftModel.Store.Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LocationType" EntityType="DEYSoftModel.Store.LocationType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lote" EntityType="DEYSoftModel.Store.Lote" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Manufacturer" EntityType="DEYSoftModel.Store.Manufacturer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Model" EntityType="DEYSoftModel.Store.Model" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Output" EntityType="DEYSoftModel.Store.Output" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PackageType" EntityType="DEYSoftModel.Store.PackageType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="DEYSoftModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductType" EntityType="DEYSoftModel.Store.ProductType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="DEYSoftModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Location_Location" Association="DEYSoftModel.Store.FK_Location_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Location1" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_LOTE_TB_LOCATION" Association="DEYSoftModel.Store.FK_TB_LOTE_TB_LOCATION">
-            <End Role="TB_LOCATION" EntitySet="TB_LOCATION" />
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
+          <AssociationSet Name="FK_Location_LocationType" Association="DEYSoftModel.Store.FK_Location_LocationType">
+            <End Role="LocationType" EntitySet="LocationType" />
+            <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_LOTE_TB_PACKAGE_TYPE" Association="DEYSoftModel.Store.FK_TB_LOTE_TB_PACKAGE_TYPE">
-            <End Role="TB_PACKAGE_TYPE" EntitySet="TB_PACKAGE_TYPE" />
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
+          <AssociationSet Name="FK_Lote_Location" Association="DEYSoftModel.Store.FK_Lote_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Lote" EntitySet="Lote" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_LOTE_TBL_PRODUCT" Association="DEYSoftModel.Store.FK_TB_LOTE_TBL_PRODUCT">
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
+          <AssociationSet Name="FK_Lote_PackageType" Association="DEYSoftModel.Store.FK_Lote_PackageType">
+            <End Role="PackageType" EntitySet="PackageType" />
+            <End Role="Lote" EntitySet="Lote" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_MODELS_TB_MANUFACTURER" Association="DEYSoftModel.Store.FK_TB_MODELS_TB_MANUFACTURER">
-            <End Role="TB_MANUFACTURER" EntitySet="TB_MANUFACTURER" />
-            <End Role="TB_MODEL" EntitySet="TB_MODEL" />
+          <AssociationSet Name="FK_Lote_Product" Association="DEYSoftModel.Store.FK_Lote_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Lote" EntitySet="Lote" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_OUTPUT_TB_LOTE" Association="DEYSoftModel.Store.FK_TB_OUTPUT_TB_LOTE">
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
-            <End Role="TB_OUTPUT" EntitySet="TB_OUTPUT" />
+          <AssociationSet Name="FK_Model_Manufacturer" Association="DEYSoftModel.Store.FK_Model_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Model" EntitySet="Model" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_PRODUCT_TB_MANUFACTURER" Association="DEYSoftModel.Store.FK_TBL_PRODUCT_TB_MANUFACTURER">
-            <End Role="TB_MANUFACTURER" EntitySet="TB_MANUFACTURER" />
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+          <AssociationSet Name="FK_Output_Lote" Association="DEYSoftModel.Store.FK_Output_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Output" EntitySet="Output" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_PRODUCT_TB_MODELS" Association="DEYSoftModel.Store.FK_TBL_PRODUCT_TB_MODELS">
-            <End Role="TB_MODEL" EntitySet="TB_MODEL" />
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+          <AssociationSet Name="FK_Product_Manufacturer" Association="DEYSoftModel.Store.FK_Product_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_PRODUCT_TB_PRODUCT_TYPE" Association="DEYSoftModel.Store.FK_TBL_PRODUCT_TB_PRODUCT_TYPE">
-            <End Role="TB_PRODUCT_TYPE" EntitySet="TB_PRODUCT_TYPE" />
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+          <AssociationSet Name="FK_Product_Model" Association="DEYSoftModel.Store.FK_Product_Model">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="DEYSoftModel.Store.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="TB_LOCATION">
+        <EntityType Name="Location">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -66,7 +70,7 @@
           <Property Name="Modified_By" Type="nvarchar" MaxLength="50" />
           <Property Name="Modified_On" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_LOCATION_TYPE">
+        <EntityType Name="LocationType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -77,27 +81,27 @@
           <Property Name="Modified_by" Type="nvarchar" MaxLength="50" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_LOTE">
+        <EntityType Name="Lote">
           <Key>
-            <PropertyRef Name="ID_LOTE" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_LOTE" Type="int" Nullable="false" />
-          <Property Name="ID_PRODUCT" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id_Product" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Cost" Type="float" />
-          <Property Name="ID_Location" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_Type_Package" Type="int" Nullable="false" />
-          <Property Name="ID_Package_Quantity" Type="int" Nullable="false" />
+          <Property Name="Id_Location" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id_Package_Type" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id_Package_Quantity" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Created_by" Type="int" />
           <Property Name="Created_on" Type="datetime" />
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_MANUFACTURER">
+        <EntityType Name="Manufacturer">
           <Key>
-            <PropertyRef Name="ID_MANUFACTURER" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_MANUFACTURER" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Country" Type="nvarchar(max)" />
           <Property Name="Created_by" Type="int" />
@@ -105,24 +109,24 @@
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_MODEL">
+        <EntityType Name="Model">
           <Key>
-            <PropertyRef Name="ID_MODELS" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_MANUFACTURER" Type="int" Nullable="false" />
-          <Property Name="ID_MODELS" Type="int" Nullable="false" />
+          <Property Name="Id_Manufacturer" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Created_by" Type="int" />
           <Property Name="Created_on" Type="datetime" />
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_OUTPUT">
+        <EntityType Name="Output">
           <Key>
-            <PropertyRef Name="ID_OUTPUT" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_OUTPUT" Type="int" Nullable="false" />
-          <Property Name="ID_LOTE" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id_Lote" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Price" Type="float" Nullable="false" />
           <Property Name="Output_TYPE" Type="nvarchar" MaxLength="100" />
@@ -132,28 +136,28 @@
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_PACKAGE_TYPE">
+        <EntityType Name="PackageType">
           <Key>
-            <PropertyRef Name="ID_Type_Package" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_Type_Package" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="Created_by" Type="int" />
           <Property Name="Created_on" Type="datetime" />
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_PRODUCT">
+        <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="ID_PRODUCT" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_PRODUCT" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Alias" Type="nvarchar" MaxLength="100" />
-          <Property Name="ID_Product_Type" Type="int" Nullable="false" />
+          <Property Name="Id_Product_Type" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="Extra_Details" Type="nvarchar" MaxLength="200" />
-          <Property Name="ID_Manufacturer" Type="int" Nullable="false" />
-          <Property Name="ID_Models" Type="int" />
+          <Property Name="Id_Manufacturer" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id_Model" Type="uniqueidentifier" />
           <Property Name="Year" Type="nchar" MaxLength="10" />
           <Property Name="Condition" Type="nvarchar" MaxLength="50" />
           <Property Name="Reorder_Point" Type="nvarchar" MaxLength="50" />
@@ -162,18 +166,18 @@
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_PRODUCT_TYPE">
+        <EntityType Name="ProductType">
           <Key>
-            <PropertyRef Name="ID_PRODUCT_TYPE" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID_PRODUCT_TYPE" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Created_by" Type="int" />
           <Property Name="Created_on" Type="datetime" />
           <Property Name="Modified_by" Type="int" />
           <Property Name="Modified_on" Type="datetime" />
         </EntityType>
-        <EntityType Name="TB_USER">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -193,586 +197,615 @@
           <Property Name="PasswordAttemptsCount" Type="int" Nullable="false" />
           <Property Name="PasswordAnswerAttemptsCount" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_TB_LOCATION_TB_LOCATION_TYPE">
-          <End Role="TB_LOCATION_TYPE" Type="DEYSoftModel.Store.TB_LOCATION_TYPE" Multiplicity="1" />
-          <End Role="TB_LOCATION" Type="DEYSoftModel.Store.TB_LOCATION" Multiplicity="*" />
+        <Association Name="FK_Location_Location">
+          <End Role="Location" Type="DEYSoftModel.Store.Location" Multiplicity="0..1" />
+          <End Role="Location1" Type="DEYSoftModel.Store.Location" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_LOCATION_TYPE">
+            <Principal Role="Location">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOCATION">
+            <Dependent Role="Location1">
+              <PropertyRef Name="Father_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_LocationType">
+          <End Role="LocationType" Type="DEYSoftModel.Store.LocationType" Multiplicity="1" />
+          <End Role="Location" Type="DEYSoftModel.Store.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Location">
               <PropertyRef Name="ID_Location_Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_LOTE_TB_LOCATION">
-          <End Role="TB_LOCATION" Type="DEYSoftModel.Store.TB_LOCATION" Multiplicity="1" />
-          <End Role="TB_LOTE" Type="DEYSoftModel.Store.TB_LOTE" Multiplicity="*" />
+        <Association Name="FK_Lote_Location">
+          <End Role="Location" Type="DEYSoftModel.Store.Location" Multiplicity="1" />
+          <End Role="Lote" Type="DEYSoftModel.Store.Lote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_LOCATION">
+            <Principal Role="Location">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOTE">
-              <PropertyRef Name="ID_Location" />
+            <Dependent Role="Lote">
+              <PropertyRef Name="Id_Location" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_LOTE_TB_PACKAGE_TYPE">
-          <End Role="TB_PACKAGE_TYPE" Type="DEYSoftModel.Store.TB_PACKAGE_TYPE" Multiplicity="1" />
-          <End Role="TB_LOTE" Type="DEYSoftModel.Store.TB_LOTE" Multiplicity="*" />
+        <Association Name="FK_Lote_PackageType">
+          <End Role="PackageType" Type="DEYSoftModel.Store.PackageType" Multiplicity="1" />
+          <End Role="Lote" Type="DEYSoftModel.Store.Lote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_PACKAGE_TYPE">
-              <PropertyRef Name="ID_Type_Package" />
+            <Principal Role="PackageType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOTE">
-              <PropertyRef Name="ID_Type_Package" />
+            <Dependent Role="Lote">
+              <PropertyRef Name="Id_Package_Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_LOTE_TBL_PRODUCT">
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.Store.TB_PRODUCT" Multiplicity="1" />
-          <End Role="TB_LOTE" Type="DEYSoftModel.Store.TB_LOTE" Multiplicity="*" />
+        <Association Name="FK_Lote_Product">
+          <End Role="Product" Type="DEYSoftModel.Store.Product" Multiplicity="1" />
+          <End Role="Lote" Type="DEYSoftModel.Store.Lote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_PRODUCT">
-              <PropertyRef Name="ID_PRODUCT" />
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOTE">
-              <PropertyRef Name="ID_PRODUCT" />
+            <Dependent Role="Lote">
+              <PropertyRef Name="Id_Product" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_MODELS_TB_MANUFACTURER">
-          <End Role="TB_MANUFACTURER" Type="DEYSoftModel.Store.TB_MANUFACTURER" Multiplicity="1" />
-          <End Role="TB_MODEL" Type="DEYSoftModel.Store.TB_MODEL" Multiplicity="*" />
+        <Association Name="FK_Model_Manufacturer">
+          <End Role="Manufacturer" Type="DEYSoftModel.Store.Manufacturer" Multiplicity="1" />
+          <End Role="Model" Type="DEYSoftModel.Store.Model" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_MANUFACTURER">
-              <PropertyRef Name="ID_MANUFACTURER" />
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_MODEL">
-              <PropertyRef Name="ID_MANUFACTURER" />
+            <Dependent Role="Model">
+              <PropertyRef Name="Id_Manufacturer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_OUTPUT_TB_LOTE">
-          <End Role="TB_LOTE" Type="DEYSoftModel.Store.TB_LOTE" Multiplicity="1" />
-          <End Role="TB_OUTPUT" Type="DEYSoftModel.Store.TB_OUTPUT" Multiplicity="*" />
+        <Association Name="FK_Output_Lote">
+          <End Role="Lote" Type="DEYSoftModel.Store.Lote" Multiplicity="1" />
+          <End Role="Output" Type="DEYSoftModel.Store.Output" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_LOTE">
-              <PropertyRef Name="ID_LOTE" />
+            <Principal Role="Lote">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_OUTPUT">
-              <PropertyRef Name="ID_LOTE" />
+            <Dependent Role="Output">
+              <PropertyRef Name="Id_Lote" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_PRODUCT_TB_MANUFACTURER">
-          <End Role="TB_MANUFACTURER" Type="DEYSoftModel.Store.TB_MANUFACTURER" Multiplicity="1" />
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.Store.TB_PRODUCT" Multiplicity="*" />
+        <Association Name="FK_Product_Manufacturer">
+          <End Role="Manufacturer" Type="DEYSoftModel.Store.Manufacturer" Multiplicity="1" />
+          <End Role="Product" Type="DEYSoftModel.Store.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_MANUFACTURER">
-              <PropertyRef Name="ID_MANUFACTURER" />
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_PRODUCT">
-              <PropertyRef Name="ID_Manufacturer" />
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_Manufacturer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_PRODUCT_TB_MODELS">
-          <End Role="TB_MODEL" Type="DEYSoftModel.Store.TB_MODEL" Multiplicity="0..1" />
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.Store.TB_PRODUCT" Multiplicity="*" />
+        <Association Name="FK_Product_Model">
+          <End Role="Model" Type="DEYSoftModel.Store.Model" Multiplicity="0..1" />
+          <End Role="Product" Type="DEYSoftModel.Store.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_MODEL">
-              <PropertyRef Name="ID_MODELS" />
+            <Principal Role="Model">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_PRODUCT">
-              <PropertyRef Name="ID_Models" />
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_Model" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_PRODUCT_TB_PRODUCT_TYPE">
-          <End Role="TB_PRODUCT_TYPE" Type="DEYSoftModel.Store.TB_PRODUCT_TYPE" Multiplicity="1" />
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.Store.TB_PRODUCT" Multiplicity="*" />
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="DEYSoftModel.Store.ProductType" Multiplicity="1" />
+          <End Role="Product" Type="DEYSoftModel.Store.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_PRODUCT_TYPE">
-              <PropertyRef Name="ID_PRODUCT_TYPE" />
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_PRODUCT">
-              <PropertyRef Name="ID_Product_Type" />
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_Product_Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DEYSoftModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="DEYSoftEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="LOCATIONs" EntityType="DEYSoftModel.LOCATION" />
-          <EntitySet Name="LOCATION_TYPE" EntityType="DEYSoftModel.LOCATION_TYPE" />
-          <EntitySet Name="TB_LOTE" EntityType="DEYSoftModel.TB_LOTE" />
-          <EntitySet Name="MANUFACTURERs" EntityType="DEYSoftModel.MANUFACTURER" />
-          <EntitySet Name="TB_MODEL" EntityType="DEYSoftModel.TB_MODEL" />
-          <EntitySet Name="TB_OUTPUT" EntityType="DEYSoftModel.TB_OUTPUT" />
-          <EntitySet Name="TB_PACKAGE_TYPE" EntityType="DEYSoftModel.TB_PACKAGE_TYPE" />
-          <EntitySet Name="TB_PRODUCT" EntityType="DEYSoftModel.TB_PRODUCT" />
-          <EntitySet Name="TB_PRODUCT_TYPE" EntityType="DEYSoftModel.TB_PRODUCT_TYPE" />
-          <EntitySet Name="USERs" EntityType="DEYSoftModel.USER" />
-          <AssociationSet Name="FK_TB_LOCATION_TB_LOCATION_TYPE" Association="DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE">
-            <End Role="TB_LOCATION_TYPE" EntitySet="LOCATION_TYPE" />
-            <End Role="TB_LOCATION" EntitySet="LOCATIONs" />
+          <EntitySet Name="Locations" EntityType="DEYSoftModel.Location" />
+          <EntitySet Name="LocationTypes" EntityType="DEYSoftModel.LocationType" />
+          <EntitySet Name="Lotes" EntityType="DEYSoftModel.Lote" />
+          <EntitySet Name="Manufacturers" EntityType="DEYSoftModel.Manufacturer" />
+          <EntitySet Name="Models" EntityType="DEYSoftModel.Model" />
+          <EntitySet Name="Outputs" EntityType="DEYSoftModel.Output" />
+          <EntitySet Name="PackageTypes" EntityType="DEYSoftModel.PackageType" />
+          <EntitySet Name="Products" EntityType="DEYSoftModel.Product" />
+          <EntitySet Name="ProductTypes" EntityType="DEYSoftModel.ProductType" />
+          <EntitySet Name="Users" EntityType="DEYSoftModel.User" />
+          <AssociationSet Name="FK_Location_Location" Association="DEYSoftModel.FK_Location_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Location1" EntitySet="Locations" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_LOTE_TB_LOCATION" Association="DEYSoftModel.FK_TB_LOTE_TB_LOCATION">
-            <End Role="TB_LOCATION" EntitySet="LOCATIONs" />
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
+          <AssociationSet Name="FK_Location_LocationType" Association="DEYSoftModel.FK_Location_LocationType">
+            <End Role="LocationType" EntitySet="LocationTypes" />
+            <End Role="Location" EntitySet="Locations" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_LOTE_TB_PACKAGE_TYPE" Association="DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE">
-            <End Role="TB_PACKAGE_TYPE" EntitySet="TB_PACKAGE_TYPE" />
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
+          <AssociationSet Name="FK_Lote_Location" Association="DEYSoftModel.FK_Lote_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Lote" EntitySet="Lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_LOTE_TBL_PRODUCT" Association="DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT">
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
+          <AssociationSet Name="FK_Lote_PackageType" Association="DEYSoftModel.FK_Lote_PackageType">
+            <End Role="PackageType" EntitySet="PackageTypes" />
+            <End Role="Lote" EntitySet="Lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_OUTPUT_TB_LOTE" Association="DEYSoftModel.FK_TB_OUTPUT_TB_LOTE">
-            <End Role="TB_LOTE" EntitySet="TB_LOTE" />
-            <End Role="TB_OUTPUT" EntitySet="TB_OUTPUT" />
+          <AssociationSet Name="FK_Lote_Product" Association="DEYSoftModel.FK_Lote_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Lote" EntitySet="Lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_MODELS_TB_MANUFACTURER" Association="DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER">
-            <End Role="TB_MANUFACTURER" EntitySet="MANUFACTURERs" />
-            <End Role="TB_MODEL" EntitySet="TB_MODEL" />
+          <AssociationSet Name="FK_Output_Lote" Association="DEYSoftModel.FK_Output_Lote">
+            <End Role="Lote" EntitySet="Lotes" />
+            <End Role="Output" EntitySet="Outputs" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_PRODUCT_TB_MANUFACTURER" Association="DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER">
-            <End Role="TB_MANUFACTURER" EntitySet="MANUFACTURERs" />
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+          <AssociationSet Name="FK_Model_Manufacturer" Association="DEYSoftModel.FK_Model_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Model" EntitySet="Models" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_PRODUCT_TB_MODELS" Association="DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS">
-            <End Role="TB_MODEL" EntitySet="TB_MODEL" />
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+          <AssociationSet Name="FK_Product_Manufacturer" Association="DEYSoftModel.FK_Product_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_PRODUCT_TB_PRODUCT_TYPE" Association="DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE">
-            <End Role="TB_PRODUCT_TYPE" EntitySet="TB_PRODUCT_TYPE" />
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+          <AssociationSet Name="FK_Product_Model" Association="DEYSoftModel.FK_Product_Model">
+            <End Role="Model" EntitySet="Models" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="DEYSoftModel.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductTypes" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="LOCATION">
+        <EntityType Name="Location">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Father_ID" Type="Guid" />
-          <Property Name="ID_Location_Type" Type="Guid" Nullable="false" />
-          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
-          <Property Name="Modified_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Modified_On" Type="DateTime" />
-          <NavigationProperty Name="TB_LOCATION_TYPE" Relationship="DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE" FromRole="TB_LOCATION" ToRole="TB_LOCATION_TYPE" />
-          <NavigationProperty Name="TB_LOTE" Relationship="DEYSoftModel.FK_TB_LOTE_TB_LOCATION" FromRole="TB_LOCATION" ToRole="TB_LOTE" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="Father_ID" />
+          <Property Type="Guid" Name="ID_Location_Type" Nullable="false" />
+          <Property Type="String" Name="Created_By" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_On" Nullable="false" />
+          <Property Type="String" Name="Modified_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modified_On" />
+          <NavigationProperty Name="Location1" Relationship="DEYSoftModel.FK_Location_Location" FromRole="Location" ToRole="Location1" />
+          <NavigationProperty Name="Location2" Relationship="DEYSoftModel.FK_Location_Location" FromRole="Location1" ToRole="Location" />
+          <NavigationProperty Name="LocationType" Relationship="DEYSoftModel.FK_Location_LocationType" FromRole="Location" ToRole="LocationType" />
+          <NavigationProperty Name="Lotes" Relationship="DEYSoftModel.FK_Lote_Location" FromRole="Location" ToRole="Lote" />
         </EntityType>
-        <EntityType Name="LOCATION_TYPE">
+        <EntityType Name="LocationType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_LOCATION" Relationship="DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE" FromRole="TB_LOCATION_TYPE" ToRole="TB_LOCATION" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Created_by" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="String" Name="Modified_by" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Locations" Relationship="DEYSoftModel.FK_Location_LocationType" FromRole="LocationType" ToRole="Location" />
         </EntityType>
-        <EntityType Name="TB_LOTE">
-          <Key>
-            <PropertyRef Name="ID_LOTE" />
-          </Key>
-          <Property Name="ID_LOTE" Type="Int32" Nullable="false" />
-          <Property Name="ID_PRODUCT" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Cost" Type="Double" />
-          <Property Name="ID_Location" Type="Guid" Nullable="false" />
-          <Property Name="ID_Type_Package" Type="Int32" Nullable="false" />
-          <Property Name="ID_Package_Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_LOCATION" Relationship="DEYSoftModel.FK_TB_LOTE_TB_LOCATION" FromRole="TB_LOTE" ToRole="TB_LOCATION" />
-          <NavigationProperty Name="TB_PACKAGE_TYPE" Relationship="DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE" FromRole="TB_LOTE" ToRole="TB_PACKAGE_TYPE" />
-          <NavigationProperty Name="TB_PRODUCT" Relationship="DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT" FromRole="TB_LOTE" ToRole="TB_PRODUCT" />
-          <NavigationProperty Name="TB_OUTPUT" Relationship="DEYSoftModel.FK_TB_OUTPUT_TB_LOTE" FromRole="TB_LOTE" ToRole="TB_OUTPUT" />
-        </EntityType>
-        <EntityType Name="MANUFACTURER">
-          <Key>
-            <PropertyRef Name="ID_MANUFACTURER" />
-          </Key>
-          <Property Name="ID_MANUFACTURER" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Country" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_MODEL" Relationship="DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER" FromRole="TB_MANUFACTURER" ToRole="TB_MODEL" />
-          <NavigationProperty Name="TB_PRODUCT" Relationship="DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER" FromRole="TB_MANUFACTURER" ToRole="TB_PRODUCT" />
-        </EntityType>
-        <EntityType Name="TB_MODEL">
-          <Key>
-            <PropertyRef Name="ID_MODELS" />
-          </Key>
-          <Property Name="ID_MANUFACTURER" Type="Int32" Nullable="false" />
-          <Property Name="ID_MODELS" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_MANUFACTURER" Relationship="DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER" FromRole="TB_MODEL" ToRole="TB_MANUFACTURER" />
-          <NavigationProperty Name="TB_PRODUCT" Relationship="DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS" FromRole="TB_MODEL" ToRole="TB_PRODUCT" />
-        </EntityType>
-        <EntityType Name="TB_OUTPUT">
-          <Key>
-            <PropertyRef Name="ID_OUTPUT" />
-          </Key>
-          <Property Name="ID_OUTPUT" Type="Int32" Nullable="false" />
-          <Property Name="ID_LOTE" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Double" Nullable="false" />
-          <Property Name="Output_TYPE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Details" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_LOTE" Relationship="DEYSoftModel.FK_TB_OUTPUT_TB_LOTE" FromRole="TB_OUTPUT" ToRole="TB_LOTE" />
-        </EntityType>
-        <EntityType Name="TB_PACKAGE_TYPE">
-          <Key>
-            <PropertyRef Name="ID_Type_Package" />
-          </Key>
-          <Property Name="ID_Type_Package" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_LOTE" Relationship="DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE" FromRole="TB_PACKAGE_TYPE" ToRole="TB_LOTE" />
-        </EntityType>
-        <EntityType Name="TB_PRODUCT">
-          <Key>
-            <PropertyRef Name="ID_PRODUCT" />
-          </Key>
-          <Property Name="ID_PRODUCT" Type="Int32" Nullable="false" />
-          <Property Name="Alias" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="ID_Product_Type" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_Details" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="ID_Manufacturer" Type="Int32" Nullable="false" />
-          <Property Name="ID_Models" Type="Int32" />
-          <Property Name="Year" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="Condition" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Reorder_Point" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_LOTE" Relationship="DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT" FromRole="TB_PRODUCT" ToRole="TB_LOTE" />
-          <NavigationProperty Name="TB_MANUFACTURER" Relationship="DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER" FromRole="TB_PRODUCT" ToRole="TB_MANUFACTURER" />
-          <NavigationProperty Name="TB_MODEL" Relationship="DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS" FromRole="TB_PRODUCT" ToRole="TB_MODEL" />
-          <NavigationProperty Name="TB_PRODUCT_TYPE" Relationship="DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE" FromRole="TB_PRODUCT" ToRole="TB_PRODUCT_TYPE" />
-        </EntityType>
-        <EntityType Name="TB_PRODUCT_TYPE">
-          <Key>
-            <PropertyRef Name="ID_PRODUCT_TYPE" />
-          </Key>
-          <Property Name="ID_PRODUCT_TYPE" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Created_by" Type="Int32" />
-          <Property Name="Created_on" Type="DateTime" />
-          <Property Name="Modified_by" Type="Int32" />
-          <Property Name="Modified_on" Type="DateTime" />
-          <NavigationProperty Name="TB_PRODUCT" Relationship="DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE" FromRole="TB_PRODUCT_TYPE" ToRole="TB_PRODUCT" />
-        </EntityType>
-        <EntityType Name="USER">
+        <EntityType Name="Lote">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="PasswordQuestion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="PasswordAnswer" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="LastLoginDate" Type="DateTime" />
-          <Property Name="LastPasswordChangeDate" Type="DateTime" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-          <Property Name="IsOnLine" Type="Boolean" />
-          <Property Name="IsLockedOut" Type="Boolean" />
-          <Property Name="PasswordAttemptsCount" Type="Int32" Nullable="false" />
-          <Property Name="PasswordAnswerAttemptsCount" Type="Int32" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id_Product" Nullable="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Double" Name="Cost" />
+          <Property Type="Guid" Name="Id_Location" Nullable="false" />
+          <Property Type="Guid" Name="Id_Package_Type" Nullable="false" />
+          <Property Type="Guid" Name="Id_Package_Quantity" Nullable="false" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Location" Relationship="DEYSoftModel.FK_Lote_Location" FromRole="Lote" ToRole="Location" />
+          <NavigationProperty Name="PackageType" Relationship="DEYSoftModel.FK_Lote_PackageType" FromRole="Lote" ToRole="PackageType" />
+          <NavigationProperty Name="Product" Relationship="DEYSoftModel.FK_Lote_Product" FromRole="Lote" ToRole="Product" />
+          <NavigationProperty Name="Outputs" Relationship="DEYSoftModel.FK_Output_Lote" FromRole="Lote" ToRole="Output" />
         </EntityType>
-        <Association Name="FK_TB_LOCATION_TB_LOCATION_TYPE">
-          <End Role="TB_LOCATION_TYPE" Type="DEYSoftModel.LOCATION_TYPE" Multiplicity="1" />
-          <End Role="TB_LOCATION" Type="DEYSoftModel.LOCATION" Multiplicity="*" />
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Models" Relationship="DEYSoftModel.FK_Model_Manufacturer" FromRole="Manufacturer" ToRole="Model" />
+          <NavigationProperty Name="Products" Relationship="DEYSoftModel.FK_Product_Manufacturer" FromRole="Manufacturer" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id_Manufacturer" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Manufacturer" Relationship="DEYSoftModel.FK_Model_Manufacturer" FromRole="Model" ToRole="Manufacturer" />
+          <NavigationProperty Name="Products" Relationship="DEYSoftModel.FK_Product_Model" FromRole="Model" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Output">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id_Lote" Nullable="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="String" Name="Output_TYPE" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Details" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Lote" Relationship="DEYSoftModel.FK_Output_Lote" FromRole="Output" ToRole="Lote" />
+        </EntityType>
+        <EntityType Name="PackageType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Lotes" Relationship="DEYSoftModel.FK_Lote_PackageType" FromRole="PackageType" ToRole="Lote" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Alias" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="Id_Product_Type" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra_Details" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="Id_Manufacturer" Nullable="false" />
+          <Property Type="Guid" Name="Id_Model" />
+          <Property Type="String" Name="Year" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Condition" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reorder_Point" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Lotes" Relationship="DEYSoftModel.FK_Lote_Product" FromRole="Product" ToRole="Lote" />
+          <NavigationProperty Name="Manufacturer" Relationship="DEYSoftModel.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
+          <NavigationProperty Name="Model" Relationship="DEYSoftModel.FK_Product_Model" FromRole="Product" ToRole="Model" />
+          <NavigationProperty Name="ProductType" Relationship="DEYSoftModel.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Created_by" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="Int32" Name="Modified_by" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Products" Relationship="DEYSoftModel.FK_Product_ProductType" FromRole="ProductType" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Lastname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastLoginDate" />
+          <Property Type="DateTime" Name="LastPasswordChangeDate" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Boolean" Name="IsOnLine" />
+          <Property Type="Boolean" Name="IsLockedOut" />
+          <Property Type="Int32" Name="PasswordAttemptsCount" Nullable="false" />
+          <Property Type="Int32" Name="PasswordAnswerAttemptsCount" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Location_Location">
+          <End Type="DEYSoftModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="DEYSoftModel.Location" Role="Location1" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_LOCATION_TYPE">
+            <Principal Role="Location">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOCATION">
+            <Dependent Role="Location1">
+              <PropertyRef Name="Father_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_LocationType">
+          <End Type="DEYSoftModel.LocationType" Role="LocationType" Multiplicity="1" />
+          <End Type="DEYSoftModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Location">
               <PropertyRef Name="ID_Location_Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_LOTE_TB_LOCATION">
-          <End Role="TB_LOCATION" Type="DEYSoftModel.LOCATION" Multiplicity="1" />
-          <End Role="TB_LOTE" Type="DEYSoftModel.TB_LOTE" Multiplicity="*" />
+        <Association Name="FK_Lote_Location">
+          <End Type="DEYSoftModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="DEYSoftModel.Lote" Role="Lote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_LOCATION">
+            <Principal Role="Location">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOTE">
-              <PropertyRef Name="ID_Location" />
+            <Dependent Role="Lote">
+              <PropertyRef Name="Id_Location" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_LOTE_TB_PACKAGE_TYPE">
-          <End Role="TB_PACKAGE_TYPE" Type="DEYSoftModel.TB_PACKAGE_TYPE" Multiplicity="1" />
-          <End Role="TB_LOTE" Type="DEYSoftModel.TB_LOTE" Multiplicity="*" />
+        <Association Name="FK_Lote_PackageType">
+          <End Type="DEYSoftModel.PackageType" Role="PackageType" Multiplicity="1" />
+          <End Type="DEYSoftModel.Lote" Role="Lote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_PACKAGE_TYPE">
-              <PropertyRef Name="ID_Type_Package" />
+            <Principal Role="PackageType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOTE">
-              <PropertyRef Name="ID_Type_Package" />
+            <Dependent Role="Lote">
+              <PropertyRef Name="Id_Package_Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_LOTE_TBL_PRODUCT">
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.TB_PRODUCT" Multiplicity="1" />
-          <End Role="TB_LOTE" Type="DEYSoftModel.TB_LOTE" Multiplicity="*" />
+        <Association Name="FK_Lote_Product">
+          <End Type="DEYSoftModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="DEYSoftModel.Lote" Role="Lote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_PRODUCT">
-              <PropertyRef Name="ID_PRODUCT" />
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_LOTE">
-              <PropertyRef Name="ID_PRODUCT" />
+            <Dependent Role="Lote">
+              <PropertyRef Name="Id_Product" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_OUTPUT_TB_LOTE">
-          <End Role="TB_LOTE" Type="DEYSoftModel.TB_LOTE" Multiplicity="1" />
-          <End Role="TB_OUTPUT" Type="DEYSoftModel.TB_OUTPUT" Multiplicity="*" />
+        <Association Name="FK_Output_Lote">
+          <End Type="DEYSoftModel.Lote" Role="Lote" Multiplicity="1" />
+          <End Type="DEYSoftModel.Output" Role="Output" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_LOTE">
-              <PropertyRef Name="ID_LOTE" />
+            <Principal Role="Lote">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_OUTPUT">
-              <PropertyRef Name="ID_LOTE" />
+            <Dependent Role="Output">
+              <PropertyRef Name="Id_Lote" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_MODELS_TB_MANUFACTURER">
-          <End Role="TB_MANUFACTURER" Type="DEYSoftModel.MANUFACTURER" Multiplicity="1" />
-          <End Role="TB_MODEL" Type="DEYSoftModel.TB_MODEL" Multiplicity="*" />
+        <Association Name="FK_Model_Manufacturer">
+          <End Type="DEYSoftModel.Manufacturer" Role="Manufacturer" Multiplicity="1" />
+          <End Type="DEYSoftModel.Model" Role="Model" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_MANUFACTURER">
-              <PropertyRef Name="ID_MANUFACTURER" />
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_MODEL">
-              <PropertyRef Name="ID_MANUFACTURER" />
+            <Dependent Role="Model">
+              <PropertyRef Name="Id_Manufacturer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_PRODUCT_TB_MANUFACTURER">
-          <End Role="TB_MANUFACTURER" Type="DEYSoftModel.MANUFACTURER" Multiplicity="1" />
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.TB_PRODUCT" Multiplicity="*" />
+        <Association Name="FK_Product_Manufacturer">
+          <End Type="DEYSoftModel.Manufacturer" Role="Manufacturer" Multiplicity="1" />
+          <End Type="DEYSoftModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_MANUFACTURER">
-              <PropertyRef Name="ID_MANUFACTURER" />
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_PRODUCT">
-              <PropertyRef Name="ID_Manufacturer" />
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_Manufacturer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_PRODUCT_TB_MODELS">
-          <End Role="TB_MODEL" Type="DEYSoftModel.TB_MODEL" Multiplicity="0..1" />
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.TB_PRODUCT" Multiplicity="*" />
+        <Association Name="FK_Product_Model">
+          <End Type="DEYSoftModel.Model" Role="Model" Multiplicity="0..1" />
+          <End Type="DEYSoftModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_MODEL">
-              <PropertyRef Name="ID_MODELS" />
+            <Principal Role="Model">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_PRODUCT">
-              <PropertyRef Name="ID_Models" />
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_Model" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_PRODUCT_TB_PRODUCT_TYPE">
-          <End Role="TB_PRODUCT_TYPE" Type="DEYSoftModel.TB_PRODUCT_TYPE" Multiplicity="1" />
-          <End Role="TB_PRODUCT" Type="DEYSoftModel.TB_PRODUCT" Multiplicity="*" />
+        <Association Name="FK_Product_ProductType">
+          <End Type="DEYSoftModel.ProductType" Role="ProductType" Multiplicity="1" />
+          <End Type="DEYSoftModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TB_PRODUCT_TYPE">
-              <PropertyRef Name="ID_PRODUCT_TYPE" />
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TB_PRODUCT">
-              <PropertyRef Name="ID_Product_Type" />
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_Product_Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DEYSoftModelStoreContainer" CdmEntityContainer="DEYSoftEntities">
-          <EntitySetMapping Name="LOCATIONs">
-            <EntityTypeMapping TypeName="DEYSoftModel.LOCATION">
-              <MappingFragment StoreEntitySet="TB_LOCATION">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Father_ID" ColumnName="Father_ID" />
-                <ScalarProperty Name="ID_Location_Type" ColumnName="ID_Location_Type" />
-                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
-                <ScalarProperty Name="Created_On" ColumnName="Created_On" />
-                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="DEYSoftModel.Location">
+              <MappingFragment StoreEntitySet="Location">
                 <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LOCATION_TYPE">
-            <EntityTypeMapping TypeName="DEYSoftModel.LOCATION_TYPE">
-              <MappingFragment StoreEntitySet="TB_LOCATION_TYPE">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="ID_Location_Type" ColumnName="ID_Location_Type" />
+                <ScalarProperty Name="Father_ID" ColumnName="Father_ID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TB_LOTE">
-            <EntityTypeMapping TypeName="DEYSoftModel.TB_LOTE">
-              <MappingFragment StoreEntitySet="TB_LOTE">
-                <ScalarProperty Name="ID_LOTE" ColumnName="ID_LOTE" />
-                <ScalarProperty Name="ID_PRODUCT" ColumnName="ID_PRODUCT" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <EntitySetMapping Name="LocationTypes">
+            <EntityTypeMapping TypeName="DEYSoftModel.LocationType">
+              <MappingFragment StoreEntitySet="LocationType">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lotes">
+            <EntityTypeMapping TypeName="DEYSoftModel.Lote">
+              <MappingFragment StoreEntitySet="Lote">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Id_Package_Quantity" ColumnName="Id_Package_Quantity" />
+                <ScalarProperty Name="Id_Package_Type" ColumnName="Id_Package_Type" />
+                <ScalarProperty Name="Id_Location" ColumnName="Id_Location" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
-                <ScalarProperty Name="ID_Type_Package" ColumnName="ID_Type_Package" />
-                <ScalarProperty Name="ID_Package_Quantity" ColumnName="ID_Package_Quantity" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MANUFACTURERs">
-            <EntityTypeMapping TypeName="DEYSoftModel.MANUFACTURER">
-              <MappingFragment StoreEntitySet="TB_MANUFACTURER">
-                <ScalarProperty Name="ID_MANUFACTURER" ColumnName="ID_MANUFACTURER" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_MODEL">
-            <EntityTypeMapping TypeName="DEYSoftModel.TB_MODEL">
-              <MappingFragment StoreEntitySet="TB_MODEL">
-                <ScalarProperty Name="ID_MANUFACTURER" ColumnName="ID_MANUFACTURER" />
-                <ScalarProperty Name="ID_MODELS" ColumnName="ID_MODELS" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_OUTPUT">
-            <EntityTypeMapping TypeName="DEYSoftModel.TB_OUTPUT">
-              <MappingFragment StoreEntitySet="TB_OUTPUT">
-                <ScalarProperty Name="ID_OUTPUT" ColumnName="ID_OUTPUT" />
-                <ScalarProperty Name="ID_LOTE" ColumnName="ID_LOTE" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Output_TYPE" ColumnName="Output_TYPE" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_PACKAGE_TYPE">
-            <EntityTypeMapping TypeName="DEYSoftModel.TB_PACKAGE_TYPE">
-              <MappingFragment StoreEntitySet="TB_PACKAGE_TYPE">
-                <ScalarProperty Name="ID_Type_Package" ColumnName="ID_Type_Package" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_PRODUCT">
-            <EntityTypeMapping TypeName="DEYSoftModel.TB_PRODUCT">
-              <MappingFragment StoreEntitySet="TB_PRODUCT">
-                <ScalarProperty Name="ID_PRODUCT" ColumnName="ID_PRODUCT" />
-                <ScalarProperty Name="Alias" ColumnName="Alias" />
-                <ScalarProperty Name="ID_Product_Type" ColumnName="ID_Product_Type" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Extra_Details" ColumnName="Extra_Details" />
-                <ScalarProperty Name="ID_Manufacturer" ColumnName="ID_Manufacturer" />
-                <ScalarProperty Name="ID_Models" ColumnName="ID_Models" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Condition" ColumnName="Condition" />
-                <ScalarProperty Name="Reorder_Point" ColumnName="Reorder_Point" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_PRODUCT_TYPE">
-            <EntityTypeMapping TypeName="DEYSoftModel.TB_PRODUCT_TYPE">
-              <MappingFragment StoreEntitySet="TB_PRODUCT_TYPE">
-                <ScalarProperty Name="ID_PRODUCT_TYPE" ColumnName="ID_PRODUCT_TYPE" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
-                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
-                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
-                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="USERs">
-            <EntityTypeMapping TypeName="DEYSoftModel.USER">
-              <MappingFragment StoreEntitySet="TB_USER">
+                <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="DEYSoftModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
-                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
-                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-                <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="IsOnLine" ColumnName="IsOnLine" />
-                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
-                <ScalarProperty Name="PasswordAttemptsCount" ColumnName="PasswordAttemptsCount" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="DEYSoftModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Manufacturer" ColumnName="Id_Manufacturer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Outputs">
+            <EntityTypeMapping TypeName="DEYSoftModel.Output">
+              <MappingFragment StoreEntitySet="Output">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Output_TYPE" ColumnName="Output_TYPE" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Id_Lote" ColumnName="Id_Lote" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PackageTypes">
+            <EntityTypeMapping TypeName="DEYSoftModel.PackageType">
+              <MappingFragment StoreEntitySet="PackageType">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DEYSoftModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Reorder_Point" ColumnName="Reorder_Point" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Id_Model" ColumnName="Id_Model" />
+                <ScalarProperty Name="Id_Manufacturer" ColumnName="Id_Manufacturer" />
+                <ScalarProperty Name="Extra_Details" ColumnName="Extra_Details" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id_Product_Type" ColumnName="Id_Product_Type" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="DEYSoftModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DEYSoftModel.User">
+              <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="PasswordAnswerAttemptsCount" ColumnName="PasswordAnswerAttemptsCount" />
+                <ScalarProperty Name="PasswordAttemptsCount" ColumnName="PasswordAttemptsCount" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsOnLine" ColumnName="IsOnLine" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -796,61 +829,58 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="DeySoft">
-        <EntityTypeShape EntityType="DEYSoftModel.LOCATION" Width="1.5" PointX="5.25" PointY="11" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.LOCATION_TYPE" Width="1.5" PointX="3" PointY="11.25" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.TB_LOTE" Width="1.5" PointX="7.5" PointY="1.375" Height="3.9033007812499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.MANUFACTURER" Width="1.5" PointX="0.75" PointY="1.875" Height="2.7494921874999991" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.TB_MODEL" Width="1.5" PointX="3" PointY="1.875" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.TB_OUTPUT" Width="1.5" PointX="9.75" PointY="1.75" Height="3.1340950520833317" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.TB_PACKAGE_TYPE" Width="1.5" PointX="5.25" PointY="7.625" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.TB_PRODUCT" Width="1.5" PointX="5.25" PointY="1" Height="4.4802050781250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.TB_PRODUCT_TYPE" Width="1.875" PointX="2.625" PointY="7.125" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="DEYSoftModel.USER" Width="1.5" PointX="9.5" PointY="5.875" Height="3.9033007812500031" IsExpanded="true" />
-        <AssociationConnector Association="DEYSoftModel.FK_TB_LOCATION_TB_LOCATION_TYPE" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="12.432444661458334" />
-          <ConnectorPoint PointX="5.25" PointY="12.432444661458334" />
+      <Diagram Name="DeySoft" ZoomLevel="59">
+        <EntityTypeShape EntityType="DEYSoftModel.Location" Width="1.5" PointX="8.625" PointY="6.25" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="DEYSoftModel.LocationType" Width="1.5" PointX="8.625" PointY="10.25" Height="2.3648893229166745" />
+        <EntityTypeShape EntityType="DEYSoftModel.Lote" Width="1.5" PointX="7.5" PointY="1.375" Height="3.9033007812500031" />
+        <EntityTypeShape EntityType="DEYSoftModel.Manufacturer" Width="1.5" PointX="2" PointY="4.25" Height="2.7494921874999956" />
+        <EntityTypeShape EntityType="DEYSoftModel.Model" Width="1.5" PointX="2" PointY="0.75" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="DEYSoftModel.Output" Width="1.5" PointX="9.75" PointY="1.75" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="DEYSoftModel.PackageType" Width="1.5" PointX="6.5" PointY="6.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="DEYSoftModel.Product" Width="1.5" PointX="5.25" PointY="1" Height="4.4802050781250031" />
+        <EntityTypeShape EntityType="DEYSoftModel.ProductType" Width="1.5" PointX="4.5" PointY="6.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="DEYSoftModel.User" Width="1.5" PointX="12.875" PointY="1.375" Height="3.9033007812500031" />
+        <AssociationConnector Association="DEYSoftModel.FK_Location_Location" >
+          <ConnectorPoint PointX="9.1569230769230767" PointY="9.5763964843750031" />
+          <ConnectorPoint PointX="9.1569230769230767" PointY="9.8263964843750031" />
+          <ConnectorPoint PointX="9.6034615384615378" PointY="9.8263964843750031" />
+          <ConnectorPoint PointX="9.6034615384615378" PointY="9.5763964843750031" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TB_LOTE_TB_LOCATION" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="12.470896809895834" />
-          <ConnectorPoint PointX="8.25" PointY="12.470896809895834" />
-          <ConnectorPoint PointX="8.25" PointY="5.27830078125" />
+        <AssociationConnector Association="DEYSoftModel.FK_Location_LocationType" >
+          <ConnectorPoint PointX="8.82846153846154" PointY="10.25" />
+          <ConnectorPoint PointX="8.82846153846154" PointY="9.5763964843750031" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TB_LOTE_TB_PACKAGE_TYPE" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="7.625" />
-          <ConnectorPoint PointX="7.125" PointY="7.25" />
-          <ConnectorPoint PointX="7.125" PointY="3.326650390625" />
-          <ConnectorPoint PointX="7.5" PointY="3.326650390625" />
+        <AssociationConnector Association="DEYSoftModel.FK_Lote_Location" >
+          <ConnectorPoint PointX="8.8125" PointY="6.25" />
+          <ConnectorPoint PointX="8.8125" PointY="5.2783007812500031" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TB_LOTE_TBL_PRODUCT" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="2.2883251953125" />
-          <ConnectorPoint PointX="7.5" PointY="2.2883251953125" />
+        <AssociationConnector Association="DEYSoftModel.FK_Lote_PackageType" >
+          <ConnectorPoint PointX="7.75" PointY="6.25" />
+          <ConnectorPoint PointX="7.75" PointY="5.2783007812500031" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TB_OUTPUT_TB_LOTE" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="3.3170475260416659" />
-          <ConnectorPoint PointX="9.75" PointY="3.3170475260416659" />
+        <AssociationConnector Association="DEYSoftModel.FK_Lote_Product" >
+          <ConnectorPoint PointX="6.75" PointY="3.3266503906250016" />
+          <ConnectorPoint PointX="7.5" PointY="3.3266503906250016" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TB_MODELS_TB_MANUFACTURER" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.24974609375" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="3.2497460937499993" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="3.24974609375" />
-          <ConnectorPoint PointX="3" PointY="3.24974609375" />
+        <AssociationConnector Association="DEYSoftModel.FK_Output_Lote" >
+          <ConnectorPoint PointX="9" PointY="3.3170475260416694" />
+          <ConnectorPoint PointX="9.75" PointY="3.3170475260416694" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TBL_PRODUCT_TB_MANUFACTURER" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="4.6244921875" />
-          <ConnectorPoint PointX="1.5" PointY="5.0523491328125019" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="5.052349132812501" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="5.0523491328125019" />
-          <ConnectorPoint PointX="5.25" PointY="5.0523491328125019" />
+        <AssociationConnector Association="DEYSoftModel.FK_Model_Manufacturer" >
+          <ConnectorPoint PointX="2.75" PointY="4.25" />
+          <ConnectorPoint PointX="2.75" PointY="3.499492187499996" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TBL_PRODUCT_TB_MODELS" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="3.24974609375" />
-          <ConnectorPoint PointX="5.25" PointY="3.24974609375" />
+        <AssociationConnector Association="DEYSoftModel.FK_Product_Manufacturer" >
+          <ConnectorPoint PointX="3.5" PointY="4.8651025390625016" />
+          <ConnectorPoint PointX="5.25" PointY="4.8651025390625016" />
         </AssociationConnector>
-        <AssociationConnector Association="DEYSoftModel.FK_TBL_PRODUCT_TB_PRODUCT_TYPE" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.78125" PointY="7.125" />
-          <ConnectorPoint PointX="2.78125" PointY="1.40625" />
-          <ConnectorPoint PointX="5.25" PointY="1.40625" />
+        <AssociationConnector Association="DEYSoftModel.FK_Product_Model" >
+          <ConnectorPoint PointX="3.5" PointY="2.249746093749998" />
+          <ConnectorPoint PointX="5.25" PointY="2.249746093749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="DEYSoftModel.FK_Product_ProductType" >
+          <ConnectorPoint PointX="5.625" PointY="6.25" />
+          <ConnectorPoint PointX="5.625" PointY="5.4802050781250031" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

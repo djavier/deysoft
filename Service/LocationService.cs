@@ -5,7 +5,6 @@ using System.Text;
 using Domain.Model;
 using Domain;
 using Domain.Repositories;
-using Infraestructure.DataHandle;
 
 namespace Service
 {
@@ -67,12 +66,22 @@ namespace Service
     public void CreateLocation(Location location,string username) 
     {
       IRepository<Location> rep = new LocationRepository();
-      location.Created_by = username;
-      location.Modified_by = username;
-      location.Created_on = DateTime.Now;
-      location.Modified_on = DateTime.Now;
+      location.Created_By = username;
+      location.Modified_By = username;
+      location.Created_On = DateTime.Now;
+      location.Modified_On = DateTime.Now;
       rep.Save(location);     
       
+    }
+
+    public void UpdateLocation(Location location, string username)
+    {
+      IRepository<Location> rep = new LocationRepository();
+      
+      location.Modified_By = username;
+      location.Modified_On = DateTime.Now;
+
+      rep.Update(location);     
     }
   
     #region IDisposable Members
@@ -83,6 +92,8 @@ namespace Service
     }
 
     #endregion
+
+
 
 
   }
