@@ -43,6 +43,20 @@ namespace Service
     }
 
 
+    public IEnumerable<ProductType> GetProductTypes()
+    {
+      IRepository<ProductType> rep = new ProductTypeRepository();
+      return rep.GetAll();
+    }
+
+
+    public ProductType GetProductTypes(string id)
+    {
+      IRepository<ProductType> rep = new ProductTypeRepository();
+      return rep.GetById(Guid.Parse(id));
+    }
+
+
 
     public void CreateModel(Model model,string username)
     {
@@ -76,6 +90,8 @@ namespace Service
 
     }
 
+
+
     public void UpdateManufacturer(Manufacturer Manufacturer, string username)
     {
       IRepository<Manufacturer> rep = new ManufacturerRepository();
@@ -86,8 +102,24 @@ namespace Service
       rep.Update(Manufacturer);
     }
 
+    public void CreateProductType(ProductType productType, string username)
+    {
+      IRepository<ProductType> rep = new ProductTypeRepository();
+      productType.Created_by = username;
+      productType.Modified_by = username;
+      productType.Created_on = DateTime.Now;
+      productType.Modified_on = DateTime.Now;
+      rep.Save(productType);
+    }
 
 
+    public void UpdateProductType(ProductType productType, string username)
+    {
+      IRepository<ProductType> rep = new ProductTypeRepository();
+      productType.Created_on = DateTime.Now;
+      productType.Modified_on = DateTime.Now;
+      rep.Update(productType);
+    }
 
 
 
@@ -103,5 +135,7 @@ namespace Service
     }
 
     #endregion
+
+
   }
 }

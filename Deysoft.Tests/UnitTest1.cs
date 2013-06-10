@@ -217,8 +217,7 @@ namespace Deysoft.Tests
         Assert.IsNotNull(manu);
       }
     }
-
-    
+        
 
     [TestMethod]
     public void CanUpdateManufacturer()
@@ -272,8 +271,7 @@ namespace Deysoft.Tests
       }
     }
 
-
-
+    
     [TestMethod]
     public void CanUpdateModel()
     {
@@ -292,5 +290,58 @@ namespace Deysoft.Tests
         Assert.Fail(e.Message + e.InnerException.Message);
       }
     }
+
+    [TestMethod]
+    public void CanCreateProductType()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          ProductType obj = new ProductType();
+          obj.Description = "Alternador";
+
+          service.CreateProductType(obj, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+
+    [TestMethod]
+    public void CanGetProductType()
+    {
+      using (var service = new Service.ProductService())
+      {
+        ProductType model = service.GetProductTypes("17DA86B1-F50A-4E1C-82BB-A1B46C7204E8");
+        Assert.IsNotNull(model);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanUpdateProductType()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          ProductType model = service.GetProductTypes("17DA86B1-F50A-4E1C-82BB-A1B46C7204E8");
+          model.Description = "Alternador 25x36";
+
+          service.UpdateProductType(model, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
   }
 }
