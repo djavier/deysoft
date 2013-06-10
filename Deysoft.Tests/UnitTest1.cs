@@ -24,6 +24,7 @@ namespace Deysoft.Tests
     }
 
     private TestContext testContextInstance;
+    private string username = "Djavier";
 
     /// <summary>
     ///Gets or sets the test context which provides
@@ -177,6 +178,59 @@ namespace Deysoft.Tests
 
           string username = "Djavier";
           service.CreateLocation(loc,username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+    [TestMethod]
+    public void CanCreateManufacturer()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          Manufacturer manu = new Manufacturer();
+          manu.Name = "Honda";
+          manu.Country = "Japan";
+
+          
+          service.CreateManufacturer(manu, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanGetManufacturer()
+    {
+      using (var service = new Service.ProductService())
+      {
+        Manufacturer manu = service.GetManufacturers("E6D4F4F1-1A03-4676-A347-FD74DBE02ACA");
+        Assert.IsNotNull(manu);
+      }
+    }
+
+    
+
+    [TestMethod]
+    public void CanUpdateManufacturer()
+    {
+      try
+      {
+        using (var service = new Service.ProductService())
+        {
+          Manufacturer manu = service.GetManufacturers("E6D4F4F1-1A03-4676-A347-FD74DBE02ACA");
+          manu.Country = "China";
+
+          service.UpdateManufacturer(manu,username);
         }
       }
       catch (Exception e)

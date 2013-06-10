@@ -1103,7 +1103,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -1113,13 +1113,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -1151,7 +1151,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -1161,13 +1161,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
@@ -1446,7 +1446,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -1456,13 +1456,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -1494,7 +1494,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -1504,13 +1504,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
@@ -1697,7 +1697,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -1707,13 +1707,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -1745,7 +1745,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -1755,13 +1755,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
@@ -2040,7 +2040,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -2050,13 +2050,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -2088,7 +2088,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -2098,13 +2098,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
@@ -2259,7 +2259,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -2269,13 +2269,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -2307,7 +2307,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -2317,13 +2317,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
@@ -2658,7 +2658,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -2668,13 +2668,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -2706,7 +2706,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -2716,13 +2716,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
@@ -2975,7 +2975,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Created_by
+        public global::System.String Created_by
         {
             get
             {
@@ -2985,13 +2985,13 @@ namespace Domain.Model
             {
                 OnCreated_byChanging(value);
                 ReportPropertyChanging("Created_by");
-                _Created_by = StructuralObject.SetValidValue(value);
+                _Created_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Created_by");
                 OnCreated_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Created_by;
-        partial void OnCreated_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
         partial void OnCreated_byChanged();
     
         /// <summary>
@@ -3023,7 +3023,7 @@ namespace Domain.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Modified_by
+        public global::System.String Modified_by
         {
             get
             {
@@ -3033,13 +3033,13 @@ namespace Domain.Model
             {
                 OnModified_byChanging(value);
                 ReportPropertyChanging("Modified_by");
-                _Modified_by = StructuralObject.SetValidValue(value);
+                _Modified_by = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Modified_by");
                 OnModified_byChanged();
             }
         }
-        private Nullable<global::System.Int32> _Modified_by;
-        partial void OnModified_byChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
         partial void OnModified_byChanged();
     
         /// <summary>
