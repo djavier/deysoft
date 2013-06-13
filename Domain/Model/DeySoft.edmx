@@ -13,6 +13,7 @@
           <EntitySet Name="Model" EntityType="DEYSoftModel.Store.Model" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Output" EntityType="DEYSoftModel.Store.Output" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PackageType" EntityType="DEYSoftModel.Store.PackageType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Price" EntityType="DEYSoftModel.Store.Price" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="DEYSoftModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductType" EntityType="DEYSoftModel.Store.ProductType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="DEYSoftModel.Store.User" store:Type="Tables" Schema="dbo" />
@@ -43,6 +44,10 @@
           <AssociationSet Name="FK_Output_Lote" Association="DEYSoftModel.Store.FK_Output_Lote">
             <End Role="Lote" EntitySet="Lote" />
             <End Role="Output" EntitySet="Output" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Price_Lote" Association="DEYSoftModel.Store.FK_Price_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Price" EntitySet="Price" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Manufacturer" Association="DEYSoftModel.Store.FK_Product_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
@@ -142,6 +147,19 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Created_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="Created_on" Type="datetime" />
+          <Property Name="Modified_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="Modified_on" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id_Lote" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Min_Price" Type="float" Nullable="false" />
+          <Property Name="Max_Price" Type="float" Nullable="false" />
           <Property Name="Created_by" Type="nvarchar" MaxLength="50" />
           <Property Name="Created_on" Type="datetime" />
           <Property Name="Modified_by" Type="nvarchar" MaxLength="50" />
@@ -281,6 +299,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Price_Lote">
+          <End Role="Lote" Type="DEYSoftModel.Store.Lote" Multiplicity="1" />
+          <End Role="Price" Type="DEYSoftModel.Store.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="Id_Lote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_Manufacturer">
           <End Role="Manufacturer" Type="DEYSoftModel.Store.Manufacturer" Multiplicity="1" />
           <End Role="Product" Type="DEYSoftModel.Store.Product" Multiplicity="*" />
@@ -372,7 +402,12 @@
             <End Role="ProductType" EntitySet="ProductTypes" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="Prices" EntityType="DEYSoftModel.Price" />
+          <AssociationSet Name="FK_Price_Lote" Association="DEYSoftModel.FK_Price_Lote">
+            <End Role="Lote" EntitySet="Lotes" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="Id" />
@@ -421,6 +456,7 @@
           <NavigationProperty Name="PackageType" Relationship="DEYSoftModel.FK_Lote_PackageType" FromRole="Lote" ToRole="PackageType" />
           <NavigationProperty Name="Product" Relationship="DEYSoftModel.FK_Lote_Product" FromRole="Lote" ToRole="Product" />
           <NavigationProperty Name="Outputs" Relationship="DEYSoftModel.FK_Output_Lote" FromRole="Lote" ToRole="Output" />
+          <NavigationProperty Name="Prices" Relationship="DEYSoftModel.FK_Price_Lote" FromRole="Lote" ToRole="Price" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
@@ -653,6 +689,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id_Lote" Nullable="false" />
+          <Property Type="Double" Name="Min_Price" Nullable="false" />
+          <Property Type="Double" Name="Max_Price" Nullable="false" />
+          <Property Type="String" Name="Created_by" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_on" />
+          <Property Type="String" Name="Modified_by" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modified_on" />
+          <NavigationProperty Name="Lote" Relationship="DEYSoftModel.FK_Price_Lote" FromRole="Price" ToRole="Lote" />
+        </EntityType>
+        <Association Name="FK_Price_Lote">
+          <End Type="DEYSoftModel.Lote" Role="Lote" Multiplicity="1" />
+          <End Type="DEYSoftModel.Price" Role="Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="Id_Lote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -809,6 +871,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="DEYSoftModel.Price">
+              <MappingFragment StoreEntitySet="Price">
+                <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+                <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Max_Price" ColumnName="Max_Price" />
+                <ScalarProperty Name="Min_Price" ColumnName="Min_Price" />
+                <ScalarProperty Name="Id_Lote" ColumnName="Id_Lote" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -836,7 +912,7 @@
         <EntityTypeShape EntityType="DEYSoftModel.Manufacturer" Width="1.5" PointX="0.75" PointY="1.875" Height="2.7494921874999956" />
         <EntityTypeShape EntityType="DEYSoftModel.Model" Width="1.5" PointX="3" PointY="1.875" Height="2.749492187499996" />
         <EntityTypeShape EntityType="DEYSoftModel.Output" Width="1.5" PointX="9.75" PointY="1.75" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="DEYSoftModel.PackageType" Width="1.5" PointX="9.75" PointY="6.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="DEYSoftModel.PackageType" Width="1.5" PointX="12.125" PointY="1.5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="DEYSoftModel.Product" Width="1.5" PointX="5.25" PointY="1" Height="4.4802050781250031" />
         <EntityTypeShape EntityType="DEYSoftModel.ProductType" Width="1.5" PointX="4.25" PointY="6.375" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="DEYSoftModel.User" Width="1.5" PointX="13.875" PointY="5" Height="3.9033007812500031" />
@@ -852,17 +928,15 @@
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Lote_Location" >
           <ConnectorPoint PointX="8.0625" PointY="6" />
-          <ConnectorPoint PointX="8.0625" PointY="5.2783007812500031" />
+          <ConnectorPoint PointX="8.0625" PointY="5.4706022135416656" />
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Lote_PackageType" >
-          <ConnectorPoint PointX="9.75" PointY="6.5" />
-          <ConnectorPoint PointX="9.375" PointY="6.125" />
-          <ConnectorPoint PointX="9.375" PointY="4.3289261536458294" />
-          <ConnectorPoint PointX="9" PointY="4.3289261536458294" />
+          <ConnectorPoint PointX="12.125" PointY="1.59375" />
+          <ConnectorPoint PointX="9" PointY="1.59375" />
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Lote_Product" >
-          <ConnectorPoint PointX="6.75" PointY="3.3266503906250016" />
-          <ConnectorPoint PointX="7.5" PointY="3.3266503906250016" />
+          <ConnectorPoint PointX="6.75" PointY="3.4228011067708328" />
+          <ConnectorPoint PointX="7.5" PointY="3.4228011067708328" />
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Output_Lote" >
           <ConnectorPoint PointX="9" PointY="3.3170475260416694" />
@@ -874,8 +948,8 @@
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Product_Manufacturer" >
           <ConnectorPoint PointX="1.5" PointY="4.624492187499996" />
-          <ConnectorPoint PointX="1.5" PointY="5.0523491328125" />
-          <ConnectorPoint PointX="5.25" PointY="5.0523491328125" />
+          <ConnectorPoint PointX="1.5" PointY="5.1484998489583305" />
+          <ConnectorPoint PointX="5.25" PointY="5.1484998489583305" />
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Product_Model" >
           <ConnectorPoint PointX="4.5" PointY="3.249746093749998" />
@@ -883,9 +957,15 @@
         </AssociationConnector>
         <AssociationConnector Association="DEYSoftModel.FK_Product_ProductType" >
           <ConnectorPoint PointX="5.5" PointY="6.375" />
-          <ConnectorPoint PointX="5.5" PointY="5.4802050781250031" />
+          <ConnectorPoint PointX="5.5" PointY="5.6725065104166656" />
         </AssociationConnector>
-      </Diagram>
+        <EntityTypeShape EntityType="DEYSoftModel.Price" Width="1.5" PointX="10.375" PointY="6" Height="2.749492187500004" />
+        <AssociationConnector Association="DEYSoftModel.FK_Price_Lote" >
+          <ConnectorPoint PointX="9" PointY="5.2085986328125022" />
+          <ConnectorPoint PointX="11.59375" PointY="5.2085986328125022" />
+          <ConnectorPoint PointX="11.59375" PointY="6" />
+        </AssociationConnector>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

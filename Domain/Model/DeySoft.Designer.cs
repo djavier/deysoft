@@ -29,6 +29,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Product_Manufacturer", "Manufacturer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Manufacturer), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Product), true)]
 [assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Product_Model", "Model", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Domain.Model.Model), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Product), true)]
 [assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Product_ProductType", "ProductType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.ProductType), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Product), true)]
+[assembly: EdmRelationshipAttribute("DEYSoftModel", "FK_Price_Lote", "Lote", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Domain.Model.Lote), "Price", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Domain.Model.Price), true)]
 
 #endregion
 
@@ -239,6 +240,22 @@ namespace Domain.Model
             }
         }
         private ObjectSet<User> _Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Price> Prices
+        {
+            get
+            {
+                if ((_Prices == null))
+                {
+                    _Prices = base.CreateObjectSet<Price>("Prices");
+                }
+                return _Prices;
+            }
+        }
+        private ObjectSet<Price> _Prices;
 
         #endregion
 
@@ -322,6 +339,14 @@ namespace Domain.Model
         public void AddToUsers(User user)
         {
             base.AddObject("Users", user);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Prices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPrices(Price price)
+        {
+            base.AddObject("Prices", price);
         }
 
         #endregion
@@ -1331,6 +1356,28 @@ namespace Domain.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Output>("DEYSoftModel.FK_Output_Lote", "Output", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Price_Lote", "Price")]
+        public EntityCollection<Price> Prices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Price>("DEYSoftModel.FK_Price_Lote", "Price");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Price>("DEYSoftModel.FK_Price_Lote", "Price", value);
                 }
             }
         }
@@ -2373,6 +2420,279 @@ namespace Domain.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Lote>("DEYSoftModel.FK_Lote_PackageType", "Lote", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DEYSoftModel", Name="Price")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Price : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Price object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id_Lote">Initial value of the Id_Lote property.</param>
+        /// <param name="min_Price">Initial value of the Min_Price property.</param>
+        /// <param name="max_Price">Initial value of the Max_Price property.</param>
+        public static Price CreatePrice(global::System.Guid id, global::System.Guid id_Lote, global::System.Double min_Price, global::System.Double max_Price)
+        {
+            Price price = new Price();
+            price.Id = id;
+            price.Id_Lote = id_Lote;
+            price.Min_Price = min_Price;
+            price.Max_Price = max_Price;
+            return price;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id_Lote
+        {
+            get
+            {
+                return _Id_Lote;
+            }
+            set
+            {
+                OnId_LoteChanging(value);
+                ReportPropertyChanging("Id_Lote");
+                _Id_Lote = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id_Lote");
+                OnId_LoteChanged();
+            }
+        }
+        private global::System.Guid _Id_Lote;
+        partial void OnId_LoteChanging(global::System.Guid value);
+        partial void OnId_LoteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double Min_Price
+        {
+            get
+            {
+                return _Min_Price;
+            }
+            set
+            {
+                OnMin_PriceChanging(value);
+                ReportPropertyChanging("Min_Price");
+                _Min_Price = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Min_Price");
+                OnMin_PriceChanged();
+            }
+        }
+        private global::System.Double _Min_Price;
+        partial void OnMin_PriceChanging(global::System.Double value);
+        partial void OnMin_PriceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double Max_Price
+        {
+            get
+            {
+                return _Max_Price;
+            }
+            set
+            {
+                OnMax_PriceChanging(value);
+                ReportPropertyChanging("Max_Price");
+                _Max_Price = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Max_Price");
+                OnMax_PriceChanged();
+            }
+        }
+        private global::System.Double _Max_Price;
+        partial void OnMax_PriceChanging(global::System.Double value);
+        partial void OnMax_PriceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Created_by
+        {
+            get
+            {
+                return _Created_by;
+            }
+            set
+            {
+                OnCreated_byChanging(value);
+                ReportPropertyChanging("Created_by");
+                _Created_by = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Created_by");
+                OnCreated_byChanged();
+            }
+        }
+        private global::System.String _Created_by;
+        partial void OnCreated_byChanging(global::System.String value);
+        partial void OnCreated_byChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Created_on
+        {
+            get
+            {
+                return _Created_on;
+            }
+            set
+            {
+                OnCreated_onChanging(value);
+                ReportPropertyChanging("Created_on");
+                _Created_on = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created_on");
+                OnCreated_onChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Created_on;
+        partial void OnCreated_onChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreated_onChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Modified_by
+        {
+            get
+            {
+                return _Modified_by;
+            }
+            set
+            {
+                OnModified_byChanging(value);
+                ReportPropertyChanging("Modified_by");
+                _Modified_by = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Modified_by");
+                OnModified_byChanged();
+            }
+        }
+        private global::System.String _Modified_by;
+        partial void OnModified_byChanging(global::System.String value);
+        partial void OnModified_byChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Modified_on
+        {
+            get
+            {
+                return _Modified_on;
+            }
+            set
+            {
+                OnModified_onChanging(value);
+                ReportPropertyChanging("Modified_on");
+                _Modified_on = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Modified_on");
+                OnModified_onChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Modified_on;
+        partial void OnModified_onChanging(Nullable<global::System.DateTime> value);
+        partial void OnModified_onChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DEYSoftModel", "FK_Price_Lote", "Lote")]
+        public Lote Lote
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lote>("DEYSoftModel.FK_Price_Lote", "Lote").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lote>("DEYSoftModel.FK_Price_Lote", "Lote").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Lote> LoteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lote>("DEYSoftModel.FK_Price_Lote", "Lote");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Lote>("DEYSoftModel.FK_Price_Lote", "Lote", value);
                 }
             }
         }

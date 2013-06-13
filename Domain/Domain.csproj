@@ -54,6 +54,9 @@
   <ItemGroup>
     <Compile Include="IRepository.cs" />
     <Compile Include="Model\Lote.cs" />
+    <Compile Include="Model\Output.cs" />
+    <Compile Include="Model\PackageType.cs" />
+    <Compile Include="Model\Price.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductType.cs" />
     <Compile Include="Model\LocationType.cs" />
@@ -67,6 +70,9 @@
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\OutputRepository.cs" />
+    <Compile Include="Repositories\PriceRepository.cs" />
+    <Compile Include="Repositories\PackageTypeRepository.cs" />
     <Compile Include="Repositories\LoteRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ProductTypeRepository.cs" />

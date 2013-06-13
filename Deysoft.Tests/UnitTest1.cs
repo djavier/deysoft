@@ -310,8 +310,7 @@ namespace Deysoft.Tests
       }
     }
 
-
-
+    
     [TestMethod]
     public void CanGetProductType()
     {
@@ -401,8 +400,230 @@ namespace Deysoft.Tests
       }
     }
 
+
+    [TestMethod]
+    public void CanCreatePackageType()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          PackageType pkg = new PackageType();
+
+          pkg.Description = "Tanque";
+
+          service.CreatePackageType(pkg, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+    [TestMethod]
+    public void CanGetPackageType()
+    {
+      using (var service = new Service.LoteService())
+      {
+        PackageType model = service.GetPackageTypes("DDDD7B18-8444-40A7-A7F3-BB21330C4949");
+        Assert.IsNotNull(model);     
+      }
+    }
+
+
+    [TestMethod]
+    public void CanUpdatePackageType()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          PackageType pkg = service.GetPackageTypes("DDDD7B18-8444-40A7-A7F3-BB21330C4949");
+
+          pkg.Description = "Cubo";
+
+          service.UpdatePackageType(pkg, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
     
 
+
+    [TestMethod]
+    public void CanCreateLote()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          Lote lote = new Lote();
+          lote.Id_Product = Guid.Parse("B3CF324D-4AE9-4D44-9CF0-4B3C2DE296C6");
+          lote.Quantity = 20;
+          lote.Cost = 630.30;
+          lote.Id_Location = Guid.Parse("13D56F19-EFC9-45AB-B15C-3E97B61FF4C3");
+          lote.Id_Package_Type = Guid.Parse("DDDD7B18-8444-40A7-A7F3-BB21330C4949");
+          lote.Id_Package_Quantity = Guid.NewGuid();
+
+          service.CreateLote(lote, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanGetLote()
+    {
+      using (var service = new Service.LoteService())
+      {
+        Lote model = service.GetLotes("53F5FE78-8CCA-4921-BEC0-2DFB0FF0B25D");
+        Assert.IsNotNull(model);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanUpdateLote()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          Lote lote = service.GetLotes("53F5FE78-8CCA-4921-BEC0-2DFB0FF0B25D");
+
+          lote.Quantity = 1000;
+          lote.Cost = 10.30;
+
+          service.UpdateLote(lote, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+    
+    [TestMethod]
+    public void CanCreatePrice()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          Price Price = new Price();
+          Price.Id_Lote = Guid.Parse("53F5FE78-8CCA-4921-BEC0-2DFB0FF0B25D");
+          Price.Min_Price = 20;
+          Price.Max_Price = 50.30;
+
+          service.CreatePrice(Price, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanGetPrice()
+    {
+      using (var service = new Service.LoteService())
+      {
+        Price model = service.GetPrices("AD49D34E-D23C-49C8-8191-115725C825C4");
+        Assert.IsNotNull(model);
+      }
+    }
+
+
+    [TestMethod]
+    public void CanUpdatePrice()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          Price price = service.GetPrices("AD49D34E-D23C-49C8-8191-115725C825C4");
+
+          price.Max_Price = 60;
+          
+
+          service.UpdatePrice(price, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+
+
+    [TestMethod]
+    public void CanCreateOutput()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          Output output = new Output();
+          output.Id_Lote = Guid.Parse("53F5FE78-8CCA-4921-BEC0-2DFB0FF0B25D");
+          output.Quantity = 5;
+          output.Price = 30;
+          output.Output_TYPE = "M";
+          output.Details = "This is a test";
+
+
+          service.CreateOutput(output, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
+
+    [TestMethod]
+    public void CanGetOutput()
+    {
+      using (var service = new Service.LoteService())
+      {
+        Output model = service.GetOutputs("A497A8B4-AEE5-4249-8E18-A619756E724B");
+        Assert.IsNotNull(model);
+      }
+    }
+
+    [TestMethod]
+    public void CanUpdateOutput()
+    {
+      try
+      {
+        using (var service = new Service.LoteService())
+        {
+          Output output = service.GetOutputs("A497A8B4-AEE5-4249-8E18-A619756E724B");
+
+          output.Quantity = 6;
+          output.Output_TYPE = "A";
+
+
+          service.UpdateOutput(output, username);
+        }
+      }
+      catch (Exception e)
+      {
+        Assert.Fail(e.Message + e.InnerException.Message);
+      }
+    }
 
   }
 }
