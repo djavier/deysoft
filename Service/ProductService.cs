@@ -130,7 +130,7 @@ namespace Service
     public void UpdateProductType(ProductType productType, string username)
     {
       IRepository<ProductType> rep = new ProductTypeRepository();
-      productType.Created_on = DateTime.Now;
+      productType.Modified_by = username;
       productType.Modified_on = DateTime.Now;
       rep.Update(productType);
     }

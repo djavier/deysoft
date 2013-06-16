@@ -30,7 +30,7 @@
             @Html.LabelFor(model => model.LocationType)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ID_Location_Type, new SelectList(new Service.LocationService().GetLocationType().ToList(), "Id", "Description"), "Please select a Location Type")
+            @Html.DropDownListFor(model => model.ID_Location_Type, new SelectList(ViewBag.LocationTypeList, "Id", "Description"), "Please select")
             @Html.ValidationMessageFor(model => model.Description)
         </div>
             
@@ -38,7 +38,7 @@
             @Html.LabelFor(model => model.Father_ID)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.Father_ID, new SelectList(new Service.LocationService().GetLocation().ToList(), "Id", "Description"), "Please select a Location father")
+            @Html.DropDownListFor(model => model.Father_ID, new SelectList(ViewBag.LocationList, "Id", "Description"), "Please select")
             @Html.ValidationMessageFor(model => model.Description)
         </div>
 

@@ -64,6 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ModelController.cs" />
+    <Compile Include="Controllers\ManufacturerController.cs" />
+    <Compile Include="Controllers\ProductTypeController.cs" />
+    <Compile Include="Controllers\PackageTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LocationTypeController.cs" />
@@ -175,6 +179,18 @@
   <ItemGroup>
     <Content Include="Views\Location\Update.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PackageType\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductType\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manufacturer\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Model\List.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -194,7 +210,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61965</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://172.28.6.116/</IISUrl>
+          <IISUrl>http://localhost/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

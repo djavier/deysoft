@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Domain.Model.Manufacturer>
+@{
+    ViewBag.Title = "List";
+}
+<h2>
+    List</h2>
+@using (Html.BeginForm("Create", "Manufacturer", FormMethod.Post))
+{ 
+    <fieldset>
+        <legend>Location</legend>
+        <div class="editor-label">
+            @Html.Label("Manufacturer Name")
+        </div>
+        <div class="editor-field">
+            @Html.Editor("Name")
+        </div>
+        <div class="editor-label">
+            @Html.Label("Country")
+        </div>
+        <div class="editor-field">
+            @Html.Editor("Country")
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            Created_by
+        </th>
+        <th>
+            Created_on
+        </th>
+        <th>
+            Modified_by
+        </th>
+        <th>
+            Modified_on
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Update", "Manufacturer", FormMethod.Post))
+        {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.Id, new { Name = "Id" })
+                @Html.EditorFor(modelItem => item.Name)
+                @Html.ValidationMessageFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => item.Country)
+                @Html.ValidationMessageFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_on)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified_on)
+            </td>
+            <td>
+                <input type="submit" value="Save" />
+            </td>
+        </tr>
+        }
+    }
+</table>

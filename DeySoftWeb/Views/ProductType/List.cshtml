@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Domain.Model.ProductType>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @using (Html.BeginForm("Create", "ProductType",FormMethod.Post))
+    { 
+       @Html.Display("Package Type Description")
+       @Html.Editor("Description")
+       <input type="submit" value="Create" />
+    }
+</p>
+<table>
+    <tr>
+        <th>
+            Description
+        </th>
+        <th>
+            Created_by
+        </th>
+        <th>
+            Created_on
+        </th>
+        <th>
+            Modified_by
+        </th>
+        <th>
+            Modified_on
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("Update", "ProductType", FormMethod.Post))
+    {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.Id, new { Name = "Id" })
+                @Html.EditorFor(modelItem => item.Description)
+                @Html.ValidationMessageFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_on)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified_on)
+            </td>
+            <td>
+                <input type="submit" value="Save" /> 
+            </td>
+        </tr>
+    }
+}
+
+</table>
