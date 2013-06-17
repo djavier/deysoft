@@ -16,10 +16,10 @@ namespace Service
     
     }
 
-    public IEnumerable<Product> GetProducts()
+    public IEnumerable<Product> GetProducts(bool childs)
     {
-      IRepository<Product> rep = new ProductRepository();
-      return rep.GetAll();
+      ProductRepository rep = new ProductRepository();
+      return rep.GetAll(childs);
     }
 
 

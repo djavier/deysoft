@@ -53,13 +53,13 @@ namespace Domain.Repositories
          public Price GetById(Guid id)
            {
              using (var session = new DEYSoftEntities())
-               return session.Prices.Where(x=> x.Id == id).FirstOrDefault();
+               return session.Prices.Include("Lote").Where(x=> x.Id == id).FirstOrDefault();
            }
 
          public IList<Price> GetAll()
            {
              using (var session = new DEYSoftEntities())
-               return session.Prices.ToList();
+               return session.Prices.Include("Lote").ToList();
            }
 
          public void Delete(Price entity)

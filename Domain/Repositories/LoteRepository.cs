@@ -60,6 +60,15 @@ namespace Domain.Repositories
         return session.Lotes.ToList();
     }
 
+   public IList<Lote> GetAll(bool childs)
+   {
+     using (var session = new DEYSoftEntities())
+       if (childs)
+         return session.Lotes.Include("Product").Include("PackageType").Include("Location").Include("Location.LocationType").Include("Price").ToList();
+       else
+         return session.Lotes.ToList();
+   }
+
    public void Delete(Lote entity)
     {
       using (var session = new DEYSoftEntities())

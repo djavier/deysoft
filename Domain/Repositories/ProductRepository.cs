@@ -62,6 +62,18 @@ namespace Domain.Repositories
                return session.Products.ToList();
            }
 
+
+         public IList<Product> GetAll(bool childs)
+         {
+           using (var session = new DEYSoftEntities())
+           {
+             if (childs)
+               return session.Products.Include("Manufacturer").Include("Model").Include("ProductType").ToList();
+             else
+               return session.Products.ToList();
+           }
+         }
+
          public void Delete(Product entity)
            {
              using (var session = new DEYSoftEntities())
