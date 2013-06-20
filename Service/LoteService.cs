@@ -96,41 +96,41 @@ namespace Service
     #endregion
 
     #region Prices
-    public IEnumerable<Price> GetPrices()
-    {
-      IRepository<Price> rep = new PriceRepository();
-      return rep.GetAll();
-    }
+    //public IEnumerable<Price> GetPrices()
+    //{
+    //  IRepository<Price> rep = new PriceRepository();
+    //  return rep.GetAll();
+    //}
 
 
-    public Price GetPrices(string id)
-    {
-      IRepository<Price> rep = new PriceRepository();
-      return rep.GetById(Guid.Parse(id));
-    }
+    //public Price GetPrices(string id)
+    //{
+    //  IRepository<Price> rep = new PriceRepository();
+    //  return rep.GetById(Guid.Parse(id));
+    //}
 
 
 
-    public void CreatePrice(Price price, string username)
-    {
-      IRepository<Price> rep = new PriceRepository();
-      price.Created_by = username;
-      price.Modified_by = username;
-      price.Created_on = DateTime.Now;
-      price.Modified_on = DateTime.Now;
-      rep.Save(price);
-    }
+    //public void CreatePrice(Price price, string username)
+    //{
+    //  IRepository<Price> rep = new PriceRepository();
+    //  price.Created_by = username;
+    //  price.Modified_by = username;
+    //  price.Created_on = DateTime.Now;
+    //  price.Modified_on = DateTime.Now;
+    //  rep.Save(price);
+    //}
 
 
-    public void UpdatePrice(Price price, string username)
-    {
-      IRepository<Price> rep = new PriceRepository();
+    //public void UpdatePrice(Price price, string username)
+    //{
+    //  IRepository<Price> rep = new PriceRepository();
 
-      price.Modified_by = username;
-      price.Modified_on = DateTime.Now;
+    //  price.Modified_by = username;
+    //  price.Modified_on = DateTime.Now;
 
-      rep.Update(price);
-    }
+    //  rep.Update(price);
+    //}
 
     #endregion
 
