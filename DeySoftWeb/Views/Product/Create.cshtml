@@ -1,0 +1,89 @@
+﻿@model Domain.Model.Product
+@{
+    ViewBag.Title = "Create";
+}
+<h2>
+    Create</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Product</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Alias)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Alias)
+            @Html.ValidationMessageFor(model => model.Alias)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Extra_Details)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Extra_Details)
+            @Html.ValidationMessageFor(model => model.Extra_Details)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Id_Product_Type, new SelectList(ViewBag.ProductTypes, "Id", "Description"), "Please Select")
+            @Html.ValidationMessageFor(model => model.Id_Product_Type)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id_Manufacturer)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Id_Manufacturer, new SelectList(ViewBag.Manufacturers, "Id", "Name"), "Please Select")
+            @Html.ValidationMessageFor(model => model.Id_Manufacturer)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Id_Model)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Id_Model, new SelectList(ViewBag.Models, "Id", "Name"), "Please Select")
+            @Html.ValidationMessageFor(model => model.Id_Model)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Year)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Year)
+            @Html.ValidationMessageFor(model => model.Year)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Condition)
+        </div>
+        <div class="editor-field">
+            <select name="Condition">
+                <option>Please Select</option>
+                <option value="New">New</option>
+                <option value="Used">Used</option>
+                <option value="Repaired">Repaired</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.Condition)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reorder_Point)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reorder_Point)
+            @Html.ValidationMessageFor(model => model.Reorder_Point)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

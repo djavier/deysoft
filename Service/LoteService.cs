@@ -19,6 +19,11 @@ namespace Service
       return rep.GetAll();
     }
 
+    public IEnumerable<Lote> GetLotes(bool childs)
+    {
+      LoteRepository rep = new LoteRepository();
+      return rep.GetAll(childs);
+    }
 
     public Lote GetLotes(string id)
     {

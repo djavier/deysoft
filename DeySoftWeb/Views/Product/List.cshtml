@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Domain.Model.Product>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Alias
+        </th>
+        <th>
+            Product Type
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Details
+        </th>
+        <th>
+            Manufacturer
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Condition
+        </th>
+        <th>
+            Reorder Point
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductType.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Extra_Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reorder_Point)
+        </td>
+
+        <td>
+            @Html.ActionLink("Update", "Update", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

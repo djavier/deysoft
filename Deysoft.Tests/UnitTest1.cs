@@ -69,11 +69,11 @@ namespace Deysoft.Tests
     {
       UserRepository repo = new UserRepository();
       User User = new User();
-      User.Username = "YGonzalez";
-      User.Name = "Yeudy";
-      User.Lastname = "Gonzalez";
-      User.Email = "yeudy87@gmail.com";                    
-      User.Password = Infraestructure.DataHandle.Hash.SHA256("ygonzalez");                 
+      User.Username = "DTerrero";
+      User.Name = "Delma";
+      User.Lastname = "Terrero";
+      User.Email = "dt@gmail.com";                    
+      User.Password = Infraestructure.DataHandle.Hash.SHA256("dterrero");                 
       User.PasswordQuestion = "";         
       User.PasswordAnswer ="";
       User.LastLoginDate = DateTime.Now;
@@ -109,7 +109,7 @@ namespace Deysoft.Tests
       using (var service = new Service.UserService())
       {
         string username = "YGonzalez";
-        string oldPassword = "ygonzalez";
+        string oldPassword = "gonzalez";
         string newPassword = "gonzalez";
 
         Assert.IsTrue(service.ChangePassword(username, oldPassword, newPassword));
@@ -451,8 +451,64 @@ namespace Deysoft.Tests
         Assert.Fail(e.Message + e.InnerException.Message);
       }
     }
-    
 
+
+    #region Price
+    
+    //[TestMethod]
+    //public void CanCreatePrice()
+    //{
+    //  try
+    //  {
+    //    using (var service = new Service.LoteService())
+    //    {
+    //      Price Price = new Price();
+    //      Price.Id_Lote = Guid.Parse("53F5FE78-8CCA-4921-BEC0-2DFB0FF0B25D");
+    //      Price.Min_Price = 20;
+    //      Price.Max_Price = 50.30;
+
+    //      service.CreatePrice(Price, username);
+    //    }
+    //  }
+    //  catch (Exception e)
+    //  {
+    //    Assert.Fail(e.Message + e.InnerException.Message);
+    //  }
+    //}
+
+
+    //[TestMethod]
+    //public void CanGetPrice()
+    //{
+    //  using (var service = new Service.LoteService())
+    //  {
+    //    Price model = service.GetPrices("AD49D34E-D23C-49C8-8191-115725C825C4");
+    //    Assert.IsNotNull(model);
+    //  }
+    //}
+
+
+    //[TestMethod]
+    //public void CanUpdatePrice()
+    //{
+    //  try
+    //  {
+    //    using (var service = new Service.LoteService())
+    //    {
+    //      Price price = service.GetPrices("AD49D34E-D23C-49C8-8191-115725C825C4");
+
+    //      price.Max_Price = 60;
+
+
+    //      service.UpdatePrice(price, username);
+    //    }
+    //  }
+    //  catch (Exception e)
+    //  {
+    //    Assert.Fail(e.Message + e.InnerException.Message);
+    //  }
+    //}
+    #endregion
 
     [TestMethod]
     public void CanCreateLote()
@@ -464,6 +520,7 @@ namespace Deysoft.Tests
           Lote lote = new Lote();
           lote.Id_Product = Guid.Parse("B3CF324D-4AE9-4D44-9CF0-4B3C2DE296C6");
           lote.Quantity = 20;
+          lote.Price = 1110;
           lote.Cost = 630.30;
           lote.Id_Location = Guid.Parse("13D56F19-EFC9-45AB-B15C-3E97B61FF4C3");
           lote.Id_Package_Type = Guid.Parse("DDDD7B18-8444-40A7-A7F3-BB21330C4949");
@@ -511,61 +568,6 @@ namespace Deysoft.Tests
       }
     }
 
-
-    
-    [TestMethod]
-    public void CanCreatePrice()
-    {
-      try
-      {
-        using (var service = new Service.LoteService())
-        {
-          Price Price = new Price();
-          Price.Id_Lote = Guid.Parse("53F5FE78-8CCA-4921-BEC0-2DFB0FF0B25D");
-          Price.Min_Price = 20;
-          Price.Max_Price = 50.30;
-
-          service.CreatePrice(Price, username);
-        }
-      }
-      catch (Exception e)
-      {
-        Assert.Fail(e.Message + e.InnerException.Message);
-      }
-    }
-
-
-    [TestMethod]
-    public void CanGetPrice()
-    {
-      using (var service = new Service.LoteService())
-      {
-        Price model = service.GetPrices("AD49D34E-D23C-49C8-8191-115725C825C4");
-        Assert.IsNotNull(model);
-      }
-    }
-
-
-    [TestMethod]
-    public void CanUpdatePrice()
-    {
-      try
-      {
-        using (var service = new Service.LoteService())
-        {
-          Price price = service.GetPrices("AD49D34E-D23C-49C8-8191-115725C825C4");
-
-          price.Max_Price = 60;
-          
-
-          service.UpdatePrice(price, username);
-        }
-      }
-      catch (Exception e)
-      {
-        Assert.Fail(e.Message + e.InnerException.Message);
-      }
-    }
 
 
 
