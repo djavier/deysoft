@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<Domain.Model.Lote>
-
 @{
     ViewBag.Title = "List";
 }
-
-<h2>List</h2>
-
+<h2>
+    List</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -29,47 +27,59 @@
         <th>
             Package Quantity
         </th>
-        <th></th>
+        <th>
+            Price
+        </th>
+        <th>
+            Max Price
+        </th>
+        <th>
+            Min Price
+        </th>
+        <th>
+            Entry Date
+        </th>
+           <th>
+        </th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Product)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Package_Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Package_Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created_by)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created_on)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Modified_by)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Modified_on)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Alias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageType.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Package_Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Min_Price)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Created_on)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 </table>

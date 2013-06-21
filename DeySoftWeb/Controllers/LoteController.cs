@@ -25,9 +25,10 @@ namespace DeySoftWeb.Controllers
         public ActionResult Create()
         {
           LoteService service = new LoteService();
-          //ViewBag.LoteTypes = service.GetLoteTypes();
-          //ViewBag.Manufacturers = service.GetManufacturers();
-          //ViewBag.Models = service.GetModels();
+          ViewBag.Products = new ProductService().GetProducts(false);
+          ViewBag.Locations = new LocationService().GetLocation();
+          ViewBag.PackageTypes= service.GetPackageTypes();
+          
 
           return View();
         }

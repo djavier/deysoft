@@ -64,7 +64,7 @@ namespace Domain.Repositories
    {
      using (var session = new DEYSoftEntities())
        if (childs)
-         return session.Lotes.Include("Product").Include("PackageType").Include("Location").Include("Location.LocationType").Include("Price").ToList();
+         return session.Lotes.Include("Product").Include("PackageType").Include("Location").Include("Location.LocationType").ToList();
        else
          return session.Lotes.ToList();
    }
